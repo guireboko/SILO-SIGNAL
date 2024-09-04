@@ -1,6 +1,7 @@
 -- Criação da base de dados do projeto
 
 create database SilosSignal;
+
 use SilosSignal;
 -- Criação da tabela de usuarios(empresas)
 
@@ -19,7 +20,7 @@ constraint chckEstado check(estado in (
 'RO', 'RR', 'SC', 'SE', 'SP', 'TO'))
 );
 
--- Criação da tabela de silos
+-- Criação da tabela de silos responsável pelo mapeamento dos silos registrados no nosso sistema
 
 create table silos
 (
@@ -32,8 +33,8 @@ capacidade float(6,2)
 create table historicoGas
 (
 cnpj varchar(18),
-concentracao varchar(20),
-horario varchar(13),
+porcentagem varchar(6),
+instanteDetectado varchar(13),
 idSilo int primary key auto_increment,
 perigo varchar(6),
 constraint chckPerigo check(perigo in ('ALTO', 'BAIXO'))
