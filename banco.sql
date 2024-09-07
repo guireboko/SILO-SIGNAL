@@ -1,81 +1,73 @@
+-- CRIAÇÃO DA BASE DE DADOS DO PROJETO
+CREATE DATABASE SilosSignal;
 
--- Criação da base de dados do projeto
+USE SilosSignal;
 
-create database SilosSignal;
-
-use SilosSignal;
--- Criação da tabela de usuarios(empresas)
-
-create table usuarios
+-- CRIAÇÃO DA TABELA DE USUÁRIOS (EMPRESAS)
+CREATE TABLE empresas
 (
-id int primary key auto_increment,
-nome varchar(50),
-cnpj varchar(18),
-email varchar(30),
-senha varchar(60),
-estado char(2),
-constraint chckEstado check(estado in (
-'AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 
-'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 
-'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 
-'RO', 'RR', 'SC', 'SE', 'SP', 'TO'))
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50),
+    cnpj VARCHAR(18),
+    email VARCHAR(30),
+    senha VARCHAR(60),
+    estado CHAR(2),
+    CONSTRAINT chckEstado CHECK(estado IN (
+        'AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 
+        'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SE', 'SP', 'TO'))
 );
 
--- Criação da tabela de silos responsável pelo mapeamento dos silos registrados no nosso sistema
-
-create table silos
+-- CRIAÇÃO DA TABELA DE SILOS RESPONSÁVEL PELO MAPEAMENTO DOS SILOS REGISTRADOS NO NOSSO SISTEMA
+CREATE TABLE silos
 (
-id int primary key auto_increment,
-cnpjEmpresa varchar(18),
-capacidade float(6,2)
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    cnpjEmpresa VARCHAR(18),
+    capacidade INT
 );
 
--- Criação da tabela de historico de detecção de gás
-create table historicoGas
+-- CRIAÇÃO DA TABELA DE HISTÓRICO DE DETECÇÃO DE GÁS
+CREATE TABLE historicoGas
 (
-cnpj varchar(18),
-porcentagem varchar(6),
-instanteDetectado varchar(13),
-idSilo int primary key auto_increment,
-perigo varchar(6),
-constraint chckPerigo check(perigo in ('ALTO', 'BAIXO'))
+    cnpj VARCHAR(18),
+    porcentagem INT,
+    instanteDetectado DATETIME,
+    idSilo INT PRIMARY KEY AUTO_INCREMENT,
+    perigo VARCHAR(6),
+    CONSTRAINT chckPerigo CHECK(perigo IN ('ALTO', 'BAIXO'))
 );
 
--- Inserção de dados nas tabelas
+-- INSERÇÃO DE DADOS NAS TABELAS
+INSERT INTO empresas (nome, cnpj, email, senha, estado) VALUES
+    ('AgroLove', '12.443.257/0001-05', 'agrolove@gmail.com', 'agro123', 'SP'),
+    ('Agrenco', '12.505.741/0001-03', 'agranco@gmail.com', 'agrenco123', 'MG'),
+    ('Cotrim', '64.035.252/0001-39', 'cotrim@gmail.com', 'cotrim123', 'ES'),
+    ('Syngenta', '64.337.227/0001-00', 'syngenta@gmail.com', 'syngenta098', 'SP'),
+    ('Monsanto', '81.977.065/0001-93', 'monsanto@gmail.com', 'monsanto897', 'CE');
 
-insert into usuarios (nome,cnpj, email, senha, estado) values
-('AgroLove', '12.443.257/0001-05', 'agrolove@gmail.com', 'agro123', 'SP'),
-('Agrenco' , '12.505.741/0001-03', 'agranco@gmail.com', 'agrenco123', 'MG'),
-('Cotrim', '64.035.252/0001-39', 'cotrim@gmail.com', 'cotrim123', 'ES'),
-('Syngenta', '64.337.227/0001-00', 'syngenta@gmail.com', 'syngenta098', 'SP'),
-('Monsanto', '81.977.065/0001-93', 'monsanto@gmail.com', 'monsanto897', 'CE');	
+INSERT INTO silos (cnpjEmpresa, capacidade) VALUES
+    ('12.443.257/0001-05', 1000),
+    ('12.505.741/0001-03', 800),
+    ('64.035.252/0001-39', 1000),
+    ('64.337.227/0001-00', 600),
+    ('81.977.065/0001-93', 1000),
+    ('81.977.065/0001-93', 800);
 
-insert into silos (cnpjEmpresa, capacidade) values
-('12.443.257/0001-05', 1000.00),
-('12.505.741/0001-03', 800.00),
-('64.035.252/0001-39', 1000.00),
-('64.337.227/0001,-00', 600.00),
-('81.977.065/0001-93', 1000.00),
-('81.977.065/0001-93', 800.00);
+INSERT INTO historicoGas (cnpj, porcentagem, instanteDetectado, perigo) VALUES
+    ('12.443.257/0001-05', 20, '2022-02-10 14:30', 'ALTO'),
+    ('12.505.741/0001-03', 2, '2024-10-08 20:20', 'BAIXO'),
+    ('64.035.252/0001-39', 22, '2021-03-26 10:30', 'ALTO'),
+    ('64.337.227/0001-00', 20, '2024-08-09 14:50', 'ALTO'),
+    ('81.977.065/0001-93', 5, '2023-01-01 00:00', 'BAIXO');
 
+-- CONSULTA DE DADOS
+SELECT * FROM empresas WHERE estado = 'SP';
 
-insert into historicoGas (cnpj, horario, perigo) values
-('12.443.257/0001-05','200m³' ,'2022-02-10: 14:30', 'ALTO'),
-('12.505.741/0001-03','50m³','2024-10-08: 20:20', 'BAIXO'),
-('64.035.252/0001-39','250m³' ,'2021-03-26: 10:30', 'ALTO'),
-('64.337.227/0001-00','300m³','2024-08-09: 14:50', 'ALTO'),
-('81.977.065/0001-93', '50m³','2023-01-01: 00:00',, 'BAIXO');																																																																							
+SELECT * FROM silos WHERE capacidade = 1000;
 
--- Consulta de dados
+SELECT * FROM silos WHERE cnpjEmpresa = '81.977.065/0001-93';
 
-select * from usuarios where estado = 'SP';
+SELECT * FROM historicoGas WHERE cnpj = '81.977.065/0001-93' AND perigo = 'ALTO';
 
-select * from silos where capacidade = 1000.00;
+SELECT * FROM historicoGas WHERE idSilo = 1;
 
-select * from silos where cnpjEmpresa = '81.977.065/0001-93';
-
-select * from historicoGas where cnpj = '81.977.065/0001-93' and perigo = 'ALTO';
-
-select * from historicoGas where idSilo = 1;
-
-select * from historicoGas where perigo = 'ALTO';
+SELECT * FROM historicoGas WHERE perigo = 'ALTO';
