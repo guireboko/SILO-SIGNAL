@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Silos Tech</title>
+</head>
+<body>
+
+    <h1>Silo Tech</h1>
+    <h2>Quanto será seu prejuízo ?</h2> 
+
+    Quantos silos possui? <br><input type="number" id="input_qtdSilos"> <br>
+    Qual a capacidade somada de seus silos (em toneladas)? <br><input type="number" id="input_capacidadeSilo"> <br>
+    Qual o valor atual da saca de soja? <br><input type="number" id="input_valorSoja"> <br>
+
+    <button onclick="calcular()">Ver o prejuizo</button> <br>
+
+    <h5 id="span_info"> * O cálculo é apenas um valor médio. O prejuizo irá depender do grau da explosão/incêndio 
+        e se impactou nos demais silos ou áreas próximas. </h5>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function calcular(){
+        var qtdSilos = Number(input_qtdSilos.value)
+        var capacidadeSilo = Number(input_capacidadeSilo.value)
+        var valorSoja = Number(input_valorSoja.value)
+
+        var custoInstalação = capacidadeSilo * 2
+        var custoUtilizaçãoSoftware = 20000 
+        var custoSuporte = 1000
+        var total = custoInstalação + custoUtilizaçãoSoftware 
+
+        // 16.67 = 1000 Kg (1 tonelada) / 60 kilos (1 saca)
+
+        // Será levado em consideração um prejuízo minimo de 20% do patrimonio (silos + grãos de soja)
+        var prejuizoMinimo = valorSoja * 16.67 * capacidadeSilo * qtdSilos * 0.20
+        
+        // Será levado em consideração um prejuízo máximo (100%) do patrimonio (silos + grãos de soja)
+        var prejuizoMaximo = valorSoja * 16.67 * capacidadeSilo * qtdSilos 
+
+        div_mensagem.innerHTML =
+
+        `
+        Sua empresa pode perder com apenas <b>1 explosão </b>: <br>
+        De <b style="color: red"> R$ ${prejuizoMinimo.toFixed(2)} </b> até <b style="color: red">R$ ${prejuizoMaximo.toFixed(2)} </b>. <br> 
+        <br> 
+        Com a utilização do <b style= "color: darkgreen">SILO SIGNAL</b> seu custo é apenas de: <br>
+        <b style= "color: blue"> R$ ${total.toFixed(2)} </b>+ <b  style= "color: blue">R$ ${custoSuporte.toFixed(2)} mensais </b>(suporte e manutenção)</b>. <br>
+        <br>
+        Você irá <b>economizar</b> entre <b style="color: rgb(117, 202, 33);"> R$${prejuizoMinimo.toFixed(2) - total.toFixed(2)} </b> e <b style="color: rgb(117, 202, 33);"> R$${prejuizoMaximo.toFixed(2) - total.toFixed(2)} </b>.
+        `
+         span_info.innerHTML = ''
+       
+    }
+</script>
