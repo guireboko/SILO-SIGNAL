@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     
+</head>
+<body>
+    
+    <img src="c:\Users\Usuario-pc\Pictures\Screenshots\Captura de Tela (2).png" alt="">
+    <div id="div_mensagem"></div>
+    Insira a Quantidade de Silos: <input type="number" id="input_qtdsilo"> <br>
+    Insira a Capacidade (em toneladas) do seu silo: <input type="number" id="input_toneladas"> <br>
+    Insira o Valor da Soja (por sacas): <input type="number" id="input_soja"> <br>
+    <button onclick="economia()">Ver economia estimada</button>
+    <div id="div_mensagem2"></div>
+</body>
+</html>
+<script>
+    function economia (){
+    var qtdsilo = Number(input_qtdsilo.value)
+    var toneladas = Number(input_toneladas.value)
+    var soja = Number(input_soja.value)
+    var sensores = (139.90 * qtdsilo) + 5859.90 + 1209.90 + 2490.90
+    var capacidade_total = toneladas * qtdsilo
+    var valor_silo = qtdsilo * 1000000
+    var valor_saca = soja * 16.67 * toneladas * qtdsilo + valor_silo
+    var ganhos = valor_saca - sensores
+    div_mensagem2.innerHTML =
+    `O seu prejuízo sem os nossos sensores, caso no seu silo ocorra uma explosão, será de: <span style =" color:red "> R$${valor_saca.toFixed(2)}</span><br>
+     O valor dos sensores de acordo com a quantidade de silos será de <b>R$${sensores.toFixed(2)}</b><br>
+     E consequentemente você deixara de peder <span style = "color : blue">R$${ganhos.toFixed(2)}</span>.`
+
+}
+    div_mensagem.innerHTML = 
+    `Custo do sensor é de: <b>R$139,90</b> <br>
+    Custo de instalação: <b> R$585,90 </b> <br>
+    Custo de Manutenção/Suporte anual: <b> R$1209,90 </b> <br>
+    Custo pelo site: <b> R$2490.90  `
+
+</script>
