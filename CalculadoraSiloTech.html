@@ -7,25 +7,28 @@
     <title>Calculadora</title>
 </head>
 
-<body>
+<body style=" background-color: #2d3a50;  flex-direction: column; flex: content; justify-content: center; align-items: center;" >
+    <div>
+    <div style="container: initial; margin-left: 250px; background-color: #ecf8f8; padding: 20px;  max-width: 1000px; border-radius: 10px; flex-direction: column; flex: content; align-items: center; justify-content: center; ">
+        <h1 style="margin-left: 350px;">Simulador Financeiro</h1>
+        <h3>Nessa simulação, calcularemos o risco de explosão em seu silo, o valor da possível perda e o prejuízo anual
+            considerando a taxa de risco.</h3>
+        <p style="margin-left: 300px; flex-direction: column;">
+        Quantidade de silos: <input  type="number" id="input_qtdSilo"> <br>
+        Eles estão interligados/próximos? (Sim ou Não) <input type="text" id="input_conexaoSilo"> <br>
+        Capacidade média dos silos, em toneladas: <input type="number" id="input_capacidadeSilo"> <br>
+        Tempo que são utilizados num ano, em semanas: <input type="number" id="input_tempoSilo"> <br>
+        Se limpa o silo após esvaziá-lo? (Sim ou Não) <input type="text" id="input_limpaSilo"> <br> <br>
 
-    <h1>Simulador Financeiro</h1>
-    <h3>Nessa simulação, calcularemos o risco de explosão em seu silo, o valor da possível perda e o prejuízo anual
-        considerando a taxa de risco.</h3>
+        <button onclick="calcRisco()" style="width: 150px; height: 45px;">Calcular Risco</button>
 
-    Quantidade de silos: <input type="number" id="input_qtdSilo"> <br>
-    Eles estão interligados/próximos? (Sim ou Não) <input type="text" id="input_conexaoSilo"> <br>
-    Capacidade média dos silos, em toneladas: <input type="number" id="input_capacidadeSilo"> <br>
-    Tempo que são utilizados num ano, em semanas: <input type="number" id="input_tempoSilo"> <br>
-    Se limpa o silo após esvaziá-lo? (Sim ou Não) <input type="text" id="input_limpaSilo"> <br> <br>
-
-    <button onclick="calcRisco()">Calcular Risco</button>
-
-    <div id="div_mensagem1"></div>
-    <div id="div_mensagem2"></div>
-    <div id="div_mensagem3"></div>
-    <div id="div_mensagem4"></div>
-
+        <div  style="margin-top: 20px;" id="div_mensagem1"></div>
+        <div  id="div_mensagem2"></div>
+        <div id="div_mensagem3"></div>
+        <div id="div_mensagem4"></div>
+        </p>
+    </div>
+</div>
 </body>
 
 </html>
@@ -81,7 +84,7 @@
 
         if (limpaSilo == 'Não') {
             if (tempoSilo < 52) {
-                div_mensagem3.innerHTML = `<br> Por não limpar, ainda há o risco de <b>${((riscoSujoUsuario) * 100).toFixed(2)}%</b> de se explodir o(s) silo(s) vazio(s), gerando a perda infraestrutural de <b>R$${perdaSujo.toFixed(2)}</b> <br>`;
+                div_mensagem3.innerHTML = `<br> Por não limpar, ainda há o risco de <b>${((riscoSujoUsuario) * 100).toFixed(5)}%</b> de se explodir o(s) silo(s) vazio(s), gerando a perda infraestrutural de <b>R$${perdaSujo.toFixed(2)}</b> <br>`;
             } else {
                 div_mensagem3.innerHTML = `<br> Devido os silos estarem sempre sendo utilizados, não há risco de explosão com eles vazios`;
             }
@@ -92,7 +95,7 @@
         div_mensagem1.innerHTML = `
             <br> <b>Simulador de Risco:</b> <br>
 
-            Risco de explosão anual: <b>${(riscoUsuario * 100).toFixed(2)}%</b> <br>
+            Risco de explosão anual: <b>${(riscoUsuario * 100).toFixed(5)}%</b> <br>
             Possível perda numa explosão: <b style="color:red">R$ ${perda.toFixed(2)}</b> <br>
             Prejuízo segundo o risco de explosão anual: <b>R$ ${prejuizoAnual.toFixed(2)}</b>
         `;
@@ -103,7 +106,7 @@
         Custo Instalação: <b>R$ ${custoSolucao} </b> <br>
         Custo Mensal(suporte e manuntenção) : R$ <b> ${custoSuporte} </b> <br>
         Representando apenas <b> ${((custoSolucao + (custoSuporte*12))/perda*100).toFixed(2)}% </b> do prejuízo de uma possível explosão. <br>
-        Economizando um total de <b style="color:green">R$ ${economiaSolucao.toFixed(2)}<b>!
+        Economizando um total de <b style="color:green">R$ ${economiaSolucao.toFixed(2)}<b> !
         `;
 
 

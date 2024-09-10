@@ -59,9 +59,9 @@ INSERT INTO historicoGas (porcentagem, instanteDetectado,perigo) VALUES
     (5, '2023-01-01 00:00', 'BAIXO');
 
 -- CONSULTA DE DADOS
-SELECT CONCAT('Empresas parceiras localizadas em Mato Grosso: ', nome, ' ', cpj) AS informacao FROM empresas WHERE estado = 'MT';
+SELECT CONCAT('Empresas parceiras localizadas em Mato Grosso: ', nome, ' ', cnpj) AS informacao FROM empresas WHERE estado = 'MT';
     
-SELECT * FROM silos WHERE capacidade = 1000;
+SELECT * FROM silos WHERE capacidadeMaxima = 1000;
 
 SELECT * FROM silos where capacidadeArmazenada > 500;
 
