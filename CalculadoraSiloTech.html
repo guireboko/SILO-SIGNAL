@@ -40,8 +40,8 @@
         var limpaSilo = input_limpaSilo.value;
 
         // Definição dos dados externos
-        var cotacaoSojaSaca = 130; // número aproximado ao atual
-        var riscoBaseAnualSilo = 0.0085; // número fictício, de risco de explosão anual por silo
+        var cotacaoSojaSaca = 137.51; // número aproximado ao atual
+        var riscoBaseAnualSilo = 0.00001; // número 0,001%, de risco de explosão anual por silo
         var custoEstruturaSiloTonelada = 700; // número Folha de São Paulo
 
 
@@ -92,7 +92,7 @@
         div_mensagem1.innerHTML = `
             <br> <b>Simulador de Risco:</b> <br>
 
-            Risco de explosão anual: <b>${((riscoAnualSilo * qtdSilo) * 100).toFixed(2)}%</b> <br>
+            Risco de explosão anual: <b>${(riscoUsuario * 100).toFixed(2)}%</b> <br>
             Possível perda numa explosão: <b style="color:red">R$ ${perda.toFixed(2)}</b> <br>
             Prejuízo segundo o risco de explosão anual: <b>R$ ${prejuizoAnual.toFixed(2)}</b>
         `;
