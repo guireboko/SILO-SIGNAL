@@ -17,6 +17,15 @@ CREATE TABLE empresas
         'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SE', 'SP', 'TO'))
 );
 
+CREATE TABLE usuariosEmpresa
+(
+    idUsuarioEmpresa INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(45),
+    email VARCHAR(45),
+    senha VARCHAR(30),
+    nomeEmpresa VARCHAR(60)
+);
+
 -- CRIAÇÃO DA TABELA DE SILOS RESPONSÁVEL PELO MAPEAMENTO DOS SILOS REGISTRADOS NO NOSSO SISTEMA
 CREATE TABLE silos
 (
@@ -28,7 +37,7 @@ CREATE TABLE silos
 -- CRIAÇÃO DA TABELA DE HISTÓRICO DE DETECÇÃO DE GÁS
 CREATE TABLE historicoGas
 (
-    idHistoricoGas INT PRIMARY KEY AUTO_INCREMENT
+    idHistoricoGas INT PRIMARY KEY AUTO_INCREMENT,
     porcentagem INT,
     instanteDetectado DATETIME,
     perigo VARCHAR(6),
@@ -42,6 +51,14 @@ INSERT INTO empresas (nome, cnpj, email, senha, estado) VALUES
     ('Cotrim', '64.035.252/0001-39', 'cotrim@gmail.com', 'cotrim123', 'ES'),
     ('Syngenta', '64.337.227/0001-00', 'syngenta@gmail.com', 'syngenta098', 'MT'),
     ('Monsanto', '81.977.065/0001-93', 'monsanto@gmail.com', 'monsanto897', 'CE');
+
+INSERT INTO usuariosEmpresa (email, senha, nomeEmpresa) VALUES
+("lucas@gmail.com", "123", "Agrenco"),
+("fabiam@gmail.com", "fabiam2001", "Syngenta"),
+("guilherme@outlook.com", "reboucas009", "Monsanto"),
+("danilo@hotmail.com", "0912901", "Agrenco"),
+("pedro@gmail.com", "1290129012", "AgroLove");
+
 
 INSERT INTO silos (capacidadeMaxima,  capacidadeArmazenada) VALUES
     (1000, 800),
@@ -60,7 +77,11 @@ INSERT INTO historicoGas (porcentagem, instanteDetectado,perigo) VALUES
 
 -- CONSULTA DE DADOS
 SELECT CONCAT('Empresas parceiras localizadas em Mato Grosso: ', nome, ' ', cnpj) AS informacao FROM empresas WHERE estado = 'MT';
+
+SELECT nome FROM usuariosEmpresa WHERE nomeEmpresa = "Cotrim"; 
     
+SELECT nomeEmpresa FROM usuariosEmpresa WHERE nome LIKE "&Lucas&";
+
 SELECT * FROM silos WHERE capacidadeMaxima = 1000;
 
 SELECT * FROM silos where capacidadeArmazenada > 500;
