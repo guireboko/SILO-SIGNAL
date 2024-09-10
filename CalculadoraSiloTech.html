@@ -11,8 +11,7 @@
     <div>
     <div style="container: initial; margin-left: 250px; background-color: #ecf8f8; padding: 20px;  max-width: 1000px; border-radius: 10px; flex-direction: column; flex: content; align-items: center; justify-content: center; ">
         <h1 style="margin-left: 350px;">Simulador Financeiro</h1>
-        <h3>Nessa simulação, calcularemos o risco de explosão em seu silo, o valor da possível perda e o prejuízo anual
-            considerando a taxa de risco.</h3>
+        <h3>Nessa simulação, calcularemos o risco de explosão em seu silo, o valor da possível perda e a comparação com a nossa solução.</h3>
         <p style="margin-left: 300px; flex-direction: column;">
         Quantidade de silos: <input  type="number" id="input_qtdSilo"> <br>
         Eles estão interligados/próximos? (Sim ou Não) <input type="text" id="input_conexaoSilo"> <br>
@@ -63,7 +62,7 @@
         // Cálculos do custo da solução
         var custoInstalacao = capacidadeSilo * qtdSilo * 0.1 ; 
         var custoUtilizacaoSoftware = 3000; // previsão hipotética
-        var custoSuporte = 300 + capacidadeSilo * qtdSilo * 0.01; // previsão hipotética
+        var custoSuporte = 300 + capacidadeSilo * qtdSilo * 0.008; // previsão hipotética
         var custoSolucao = custoInstalacao + custoUtilizacaoSoftware;
         custoSolucaoAno = custoSolucao + custoSuporte * 12;
 
@@ -103,7 +102,7 @@
         <br> <b>Nossa Solução: </b> <br>
         Agora, com a utilização da solução <b> Silos Signal </b> seu custo seria apenas de: <br>
         Custo Instalação: <b>R$ ${custoSolucao} </b> <br>
-        Custo Mensal(suporte e manuntenção) : R$ <b> ${custoSuporte} </b> <br>
+        Custo Mensal(suporte e manuntenção) : R$ <b> ${custoSuporte.toFixed(2)} </b> <br>
         Representando apenas <b> ${(custoSolucaoAno/perda*100).toFixed(2)}% </b> do prejuízo de uma possível explosão. <br>
         Economizando um total de <b style="color:green">R$ ${economiaSolucao.toFixed(2)}<b> !
         `;
