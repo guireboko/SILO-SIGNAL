@@ -7,12 +7,21 @@
     <title>Calculadora</title>
 </head>
 
-<body>
+<body style=" background-color: #2d3a50;  flex-direction: column; flex: content; justify-content: center; align-items: center;" >
+    <div>
+    <div style="container: initial; margin-left: 250px; background-color: #ecf8f8; padding: 20px;  max-width: 1000px; border-radius: 10px; flex-direction: column; flex: content; align-items: center; justify-content: center; ">
+        <h1 style="margin-left: 350px;">Simulador Financeiro</h1>
+        <h3>Nessa simulação, calcularemos o risco de explosão em seu silo, o valor da possível perda e a comparação com a nossa solução.</h3>
+        <p style="margin-left: 300px; flex-direction: column;">
+        Quantidade de silos: <input  type="number" id="input_qtdSilo"> <br>
+        Eles estão interligados/próximos? (Sim ou Não) <input type="text" id="input_conexaoSilo"> <br>
+        Capacidade média dos silos, em toneladas: <input type="number" id="input_capacidadeSilo"> <br>
+        Tempo que são utilizados num ano, em semanas: <input type="number" id="input_tempoSilo"> <br>
+        Se limpa o silo após esvaziá-lo? (Sim ou Não) <input type="text" id="input_limpaSilo"> <br> <br>
 
-    <h1>Simulador Financeiro</h1>
-    <h3>Nessa simulação, calcularemos o risco de explosão em seu silo, o valor da possível perda e o prejuízo anual
-        considerando a taxa de risco.</h3>
+        <button onclick="calcRisco()" style="width: 150px; height: 45px;">Calcular Risco</button>
 
+<<<<<<< HEAD
     Quantidade de silos: <input type="number" id="input_qtdSilo"> <br>
     Eles estão interligados/próximos? (Sim ou Não) <input type="text" id="input_conexaoSilo"> <br>
     Capacidade média dos silos, em toneladas: <input type="number" id="input_capacidadeSilo"> <br>
@@ -26,6 +35,15 @@
     <div id="div_mensagem3"></div>
     <div id="div_mensagem4"></div>
 
+=======
+        <div  style="margin-top: 20px;" id="div_mensagem1"></div>
+        <div  id="div_mensagem2"></div>
+        <div id="div_mensagem3"></div>
+        <div id="div_mensagem4"></div>
+        </p>
+    </div>
+</div>
+>>>>>>> ad7cb12772c332cc837a1ed9bd4c262f02547fa1
 </body>
 
 </html>
@@ -40,8 +58,13 @@
         var limpaSilo = input_limpaSilo.value;
 
         // Definição dos dados externos
+<<<<<<< HEAD
         var cotacaoSojaSaca = 130; // número aproximado ao atual
         var riscoBaseAnualSilo = 0.0085; // número fictício, de risco de explosão anual por silo
+=======
+        var cotacaoSojaSaca = 137.51; // número aproximado ao atual
+        var riscoBaseAnualSilo = 0.00001; // número 0,001%, de risco de explosão anual por silo
+>>>>>>> ad7cb12772c332cc837a1ed9bd4c262f02547fa1
         var custoEstruturaSiloTonelada = 700; // número Folha de São Paulo
 
 
@@ -57,6 +80,7 @@
         var riscoSujoUsuario = riscoBaseAnualSilo * ((52 - tempoSilo )/ 52); // considerando o tempo em que o silo sujo fica vazio;
         var perdaSujo = custoEstruturaSiloTotal;
 
+<<<<<<< HEAD
         var prejuizoAnual = 0;
 
         // Cálculos do custo da solução
@@ -65,6 +89,14 @@
         var custoSuporte = 100 + capacidadeSilo * qtdSilo * 0.1; // previsão hipotética
         var custoSolucao = custoInstalacao + custoUtilizacaoSoftware;
         var economiaSolucao = (perda - (custoSolucao + custoSuporte*12));
+=======
+        // Cálculos do custo da solução
+        var custoInstalacao = capacidadeSilo * qtdSilo * 0.1 ; 
+        var custoUtilizacaoSoftware = 3000; // previsão hipotética
+        var custoSuporte = 300 + capacidadeSilo * qtdSilo * 0.008; // previsão hipotética
+        var custoSolucao = custoInstalacao + custoUtilizacaoSoftware;
+        custoSolucaoAno = custoSolucao + custoSuporte * 12;
+>>>>>>> ad7cb12772c332cc837a1ed9bd4c262f02547fa1
 
         
         div_mensagem3.innerHTML = ''; // Limpeza da mensagem, para mostrar novo cenário
@@ -81,12 +113,17 @@
 
         if (limpaSilo == 'Não') {
             if (tempoSilo < 52) {
+<<<<<<< HEAD
                 div_mensagem3.innerHTML = `<br> Por não limpar, ainda há o risco de <b>${((riscoSujoUsuario) * 100).toFixed(2)}%</b> de se explodir o(s) silo(s) vazio(s), gerando a perda infraestrutural de <b>R$${perdaSujo.toFixed(2)}</b> <br>`;
+=======
+                div_mensagem3.innerHTML = `<br> Por não limpar, ainda há o risco de <b>${((riscoSujoUsuario) * 100).toFixed(5)}%</b> de se explodir o(s) silo(s) vazio(s), gerando a perda infraestrutural de <b style="color:red"> R$${perdaSujo.toFixed(2)}</b> <br>`;
+>>>>>>> ad7cb12772c332cc837a1ed9bd4c262f02547fa1
             } else {
                 div_mensagem3.innerHTML = `<br> Devido os silos estarem sempre sendo utilizados, não há risco de explosão com eles vazios`;
             }
         };
 
+<<<<<<< HEAD
         prejuizoAnual = perda * riscoUsuario;
         
         div_mensagem1.innerHTML = `
@@ -95,15 +132,32 @@
             Risco de explosão anual: <b>${((riscoAnualSilo * qtdSilo) * 100).toFixed(2)}%</b> <br>
             Possível perda numa explosão: <b style="color:red">R$ ${perda.toFixed(2)}</b> <br>
             Prejuízo segundo o risco de explosão anual: <b>R$ ${prejuizoAnual.toFixed(2)}</b>
+=======
+        var economiaSolucao = perda - custoSolucaoAno;
+        
+        div_mensagem1.innerHTML = `
+            <br> <b>Simulador do Risco de Explosão:</b> <br>
+
+            Além de possíveis perdas humanas significativas e haver de lidar com uma situação catastrófica, há: <br> <br>
+
+            Risco de explosão anual: <b>${(riscoUsuario * 100).toFixed(5)}%</b> <br>
+            Possível perda numa explosão: <b style="color:red">R$ ${perda.toFixed(2)}</b> <br>
+>>>>>>> ad7cb12772c332cc837a1ed9bd4c262f02547fa1
         `;
 
         div_mensagem4.innerHTML = `
         <br> <b>Nossa Solução: </b> <br>
-        Com a utilização da solução <b> Silos Signal </b> seu custo seria apenas de: <br>
+        Agora, com a utilização da solução <b> Silos Signal </b> seu custo seria apenas de: <br>
         Custo Instalação: <b>R$ ${custoSolucao} </b> <br>
+<<<<<<< HEAD
         Custo Mensal(suporte e manuntenção) : R$ <b> ${custoSuporte} </b> <br>
         Representando apenas <b> ${((custoSolucao + (custoSuporte*12))/perda*100).toFixed(2)}% </b> do prejuízo de uma possível explosão. <br>
         Economizando um total de <b style="color:green">R$ ${economiaSolucao.toFixed(2)}<b>!
+=======
+        Custo Mensal(suporte e manuntenção) : R$ <b> ${custoSuporte.toFixed(2)} </b> <br>
+        Representando apenas <b> ${(custoSolucaoAno/perda*100).toFixed(2)}% </b> do prejuízo de uma possível explosão. <br>
+        Economizando um total de <b style="color:green">R$ ${economiaSolucao.toFixed(2)}<b> !
+>>>>>>> ad7cb12772c332cc837a1ed9bd4c262f02547fa1
         `;
 
 

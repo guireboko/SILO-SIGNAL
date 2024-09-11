@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Risco de Perda</title>
+</head>
+<body>
+    <h1>Calculadora de Risco de Perda</h1>
+
+    Quantidade de Silos de Soja: <input id="inputSilos" type="number"><br>
+    Média de armazenamento dos Silos (em toneladas): <input id="inputArmaz" type="text"><br>
+    Cotação da saca de soja de 60kg atual: <input id="inputSaca" type="text"><br>
+    Preço médio dos silos: <input id="inputPreco" type="text"><br>
+    Capacidade média dos silo : 
+    <select  id="selectFracao">  
+         <option  value="1">1</option>
+         <option  value="0.5">1/2</option>
+         <option  value="0.333333333">1/3</option>
+         <option  value="0.25">1/4</option>
+    </select>
+
+    <button onclick="verificar()">Calcular Perda</button>
+    <div id="div_mensagem"></div>
+    <div id="div_mensagem1"></div>
+</body>
+</html>
+<script>
+    function verificar() {
+        var silos = Number(inputSilos.value);
+        var fracao = Number(selectFracao.value);
+        var armazenamentoTotal = Number(inputArmaz.value) * 1000;
+        var armazenamentoPorSilo = (armazenamentoTotal * fracao)
+        var saca = Number(inputSaca.value);
+        var conversao = (silos * armazenamentoPorSilo) / 60;
+        var conversaoUnico = armazenamentoPorSilo / 60;
+        var preco = Number(inputPreco.value);
+        var mensagem = `Com ${silos} silo(s), com a média de ${(armazenamentoPorSilo / 1000)} toneladas de armazenamento, você consegue fazer cerca de:<br>${conversao.toFixed(2)} sacas de soja de 60 kg com o valor de R$${(conversao * saca).toFixed(2)}.
+        <br> Com a explosão de 1 silo, a perda seria de: <br> R$${((saca * conversaoUnico) + preco).toFixed(2)}, e se ocorrer uma explosão em cadeia, a perda total seria de: R$${((conversao * saca) + (preco * silos)).toFixed(2)}, além do risco de possíveis mortes e danos colaterais. `;
+    
+        if (silos <= 0 || armazenamentoTotal <= 0 || saca <= 0 || preco < 0) {
+            alert("Por favor, insira valores válidos.");
+        } else {   
+            div_mensagem1.innerHTML = mensagem;
+        }
+    }
+</script>

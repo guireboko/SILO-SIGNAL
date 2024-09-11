@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ola cliente 👋</title>
+</head>
+<body>  
+    
+<div>
+    <div>
+
+        <h1> Olá! 🌱 </h1>
+
+        <p> Quantos silos você possui?</p>
+        <input id="inputNumeroSilos"><br>
+
+        <p> Qual a capacidade deles? (em toneladas)</p>
+        <input id="inputCapacidadeSilo"><br>
+
+        <p> Qual a quantidade de soja armazenada em média por silo a cada rotação (em toneladas)</p>
+        <select id="escolhaSoja">
+            <option value="meioSilo">1/2</option>
+            <option value="umTercoDoSilo">1/4</option>
+            <option value="tresQuartosDoSilo">3/4</option>
+            <option value="umInteiro">1</option>
+        </select><br>
+
+        <p > Seus silos estão próximos uns dos outros? (Sim/Não)</p>
+        <select id="escolhaProximidadeSilos">
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select><br>
+
+        <button onclick="calculo()">O que estou perdendo?</button>
+    </div>
+
+    <div id="divMensagem">
+
+    </div>
+</div>
+</body>
+</html>
+
+<script>
+
+function calculo() {
+        // Definição das variáveis baseadas nos inputs do usuário
+        var qtdSilo = Number(inputNumeroSilos.value);
+        var capacidadeSilo = Number(inputCapacidadeSilo.value);
+        var opcaoEscolhida = escolhaSoja.value;
+        var proximidadeSilos = escolhaProximidadeSilos.value;
+
+        // Total de soja armazenada por silo com base na escolha do usuário
+        var porcentagemSoja = 0;
+        if(opcaoEscolhida === 'meioSilo') {
+            porcentagemSoja = 0.5;
+        } else if(opcaoEscolhida === 'umTercoDoSilo') {
+            porcentagemSoja = 0.33;
+        } else if(opcaoEscolhida === 'tresQuartosDoSilo') {
+            porcentagemSoja = 0.75;
+        } else if(opcaoEscolhida === 'umInteiro') {
+            porcentagemSoja = 1;
+        }
+
+        // Definição de constantes para o preço da soja e o tempo médio de rotação (ciclo de 130 dias)
+        const precoSoja = 137.51;
+        
+        // Cálculo da quantidade de soja armazenada por silo
+        var quantidadeSojaArmazenada = (qtdSilo * capacidadeSilo) * porcentagemSoja;
+        var quantidadeSojaArmazenadaPSilo = capacidadeSilo * porcentagemSoja;
+
+        // Conversão da quantidade para sacas
+        // Considerando que 60 kg = 1 saca
+        var quantidadeSojaSacas = quantidadeSojaArmazenada / 60;
+
+        // Cálculo do lucro por ciclo com base na quantidade de sacas
+        var lucroPorCiclo = precoSoja * quantidadeSojaSacas;
+
+        // Cálculo de perda baseado na explosão por ciclo
+        var perdaPSilo = precoSoja * quantidadeSojaArmazenadaPSilo / 60;
+        
+        var perdaExplosao = 0;
+
+        if (proximidadeSilos === 'sim') {
+            perdaExplosao = perdaPSilo * 3; // Prejuízo com explosão de 3 silos
+        } else {
+            perdaExplosao = perdaPSilo; // Apenas um silo é afetado
+        }
+
+        // Cálculo de percentual de perda por ciclo
+        var perdaPercentual = (perdaExplosao / lucroPorCiclo) * 100;
+
+        divMensagem.innerHTML = `<b>Com nosso serviço implementado</b> nos seus silos de armazenamento você <br>
+         irá manter seu lucro estável de R$${lucroPorCiclo.toFixed(2)} por ciclo e garantirá a segurança de seus funcionários na manutenção <br>
+         ou limpeza do silo. <b>Sem nosso serviço</b>, você perderá R$${perdaExplosao.toFixed(2)},<br>
+         o que corresponde a ${perdaPercentual.toFixed(2)}% do seu lucro por ciclo, além de colocar seus funcionários <br>
+         em alto risco a <b>todo momento</b>.`;
+}
+</script>

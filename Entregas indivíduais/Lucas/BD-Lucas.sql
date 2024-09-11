@@ -17,15 +17,6 @@ CREATE TABLE empresas
         'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SE', 'SP', 'TO'))
 );
 
-CREATE TABLE usuariosEmpresa
-(
-    idUsuarioEmpresa INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(45),
-    email VARCHAR(45),
-    senha VARCHAR(30),
-    nomeEmpresa VARCHAR(60)
-);
-
 -- CRIAÇÃO DA TABELA DE SILOS RESPONSÁVEL PELO MAPEAMENTO DOS SILOS REGISTRADOS NO NOSSO SISTEMA
 CREATE TABLE silos
 (
@@ -52,14 +43,6 @@ INSERT INTO empresas (nome, cnpj, email, senha, estado) VALUES
     ('Syngenta', '64.337.227/0001-00', 'syngenta@gmail.com', 'syngenta098', 'MT'),
     ('Monsanto', '81.977.065/0001-93', 'monsanto@gmail.com', 'monsanto897', 'CE');
 
-INSERT INTO usuariosEmpresa (email, senha, nomeEmpresa) VALUES
-("lucas@gmail.com", "123", "Agrenco"),
-("fabiam@gmail.com", "fabiam2001", "Syngenta"),
-("guilherme@outlook.com", "reboucas009", "Monsanto"),
-("danilo@hotmail.com", "0912901", "Agrenco"),
-("pedro@gmail.com", "1290129012", "AgroLove");
-
-
 INSERT INTO silos (capacidadeMaxima,  capacidadeArmazenada) VALUES
     (1000, 800),
     (4000, 800),
@@ -76,16 +59,14 @@ INSERT INTO historicoGas (porcentagem, instanteDetectado,perigo) VALUES
     (5, '2023-01-01 00:00', 'BAIXO');
 
 -- CONSULTA DE DADOS
-SELECT CONCAT('Empresas parceiras localizadas em Mato Grosso: ', nome, ' ', cnpj) AS informacao FROM empresas WHERE estado = 'MT';
-
-SELECT nome FROM usuariosEmpresa WHERE nomeEmpresa = "Cotrim"; 
-    
-SELECT nomeEmpresa FROM usuariosEmpresa WHERE nome LIKE "&Lucas&";
+SELECT CONCAT('Empresas parceiras localizadas em Mato Grosso: ', nome, ' ', cnpj) AS Empresas FROM empresas WHERE estado = 'MT';
 
 SELECT * FROM silos WHERE capacidadeMaxima = 1000;
 
 SELECT * FROM silos where capacidadeArmazenada > 500;
 
-SELECT * FROM historicoGas WHERE porcentagem = 10;
+SELECT * FROM historicoGas WHERE instanteDetectado = "2024-08-09 14:50" AND perigo = "ALTO";
+
+SELECT * FROM historicoGas WHERE porcentagem > 15;
 
 SELECT * FROM historicoGas WHERE perigo != 'BAIXO';
