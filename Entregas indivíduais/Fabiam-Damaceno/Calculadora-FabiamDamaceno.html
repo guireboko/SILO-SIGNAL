@@ -25,9 +25,7 @@
     <div id="div_mensagem2"></div>
     <div id="div_mensagem3"></div>
     <div id="div_mensagem4"></div>
-    <!-- mudar nome das variaveis 
-    criar situação quando o silo não está vazio
-    tornar código mais eficiente, tirar coisas, como a mensagem, para fora do código -->
+
 </body>
 
 </html>
@@ -41,12 +39,12 @@
         var tempoSilo = Number(input_tempoSilo.value);
         var limpaSilo = input_limpaSilo.value;
 
-        // 
+        // Definição dos valores base dos cálculos
         var cotacaoSojaSaca = 130; // número aproximado ao atual
         var riscoBaseAnualSilo = 0.001; // 0,1% número calculado - fonte na documentação do grupo - de risco de explosão anual por silo
         var custoEstruturaSiloTonelada = 700; // número Folha de São Paulo
 
-
+        // Cálculos do algoritmo
         var riscoAnualSilo = riscoBaseAnualSilo * (tempoSilo / 52) // considerando um total de 52 semanas num ano e que o silo é limpo após ser esvaziado, não havendo assim risco de explosão
         var cotacaoSojaTonelada = cotacaoSojaSaca * 1000 / 60;
         var custoEstruturaSiloTotal = capacidadeSilo * custoEstruturaSiloTonelada;
@@ -89,11 +87,3 @@
         `;
     };
 </script>
-
-<!-- <br>Com a utilização do <b>Silos Signal </b> seu custo é apenas de: <br>
-<b>Custo Total: R$ ${total} + R$ ${custoSuporte} mensais (suporte e manutenção)</b>
-
-var custoInstalação = capacidadeSilo * 2
-var custoUtilizaçãoSoftware = 20000 
-var custoSuporte = 5000
-var total = custoInstalação + custoUtilizaçãoSoftware  -->
