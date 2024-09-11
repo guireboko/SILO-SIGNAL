@@ -1,4 +1,5 @@
--- CRIAÇÃO DA BASE DE DADOS DO PROJETO
+
+-- CONSULTA DE DADOS-- CRIAÇÃO DA BASE DE DADOS DO PROJETO
 CREATE DATABASE SilosSignal;
 
 USE SilosSignal;
@@ -52,12 +53,12 @@ INSERT INTO empresas (nome, cnpj, email, senha, estado) VALUES
     ('Syngenta', '64.337.227/0001-00', 'syngenta@gmail.com', 'syngenta098', 'MT'),
     ('Monsanto', '81.977.065/0001-93', 'monsanto@gmail.com', 'monsanto897', 'CE');
 
-INSERT INTO usuariosEmpresa (email, senha, nomeEmpresa) VALUES
-("lucas@gmail.com", "123", "Agrenco"),
-("fabiam@gmail.com", "fabiam2001", "Syngenta"),
-("guilherme@outlook.com", "reboucas009", "Monsanto"),
-("danilo@hotmail.com", "0912901", "Agrenco"),
-("pedro@gmail.com", "1290129012", "AgroLove");
+INSERT INTO usuariosEmpresa (nome,email, senha, nomeEmpresa) VALUES
+("Ana Silva", "ana.silva@example.com", "senha123","Agrenco"),
+("Bruno Oliveira", "bruno.oliveira@example.com", "bruno456", "Cotrim"),
+("Clara Costa", "clara.costa@example.com", "clara789", "AgroLove"),
+("Daniel Souza", "daniel.souza@example.com", "daniel101", "Agrenco"),
+("Eva Martins", "eva.martins@example.com", "eva202", "AgroLove");
 
 
 INSERT INTO silos (capacidadeMaxima,  capacidadeArmazenada) VALUES
@@ -71,7 +72,7 @@ INSERT INTO silos (capacidadeMaxima,  capacidadeArmazenada) VALUES
 INSERT INTO historicoGas (porcentagem, instanteDetectado,perigo) VALUES
     (20, '2022-02-10 14:30', 'ALTO'),
     (2, '2024-10-08 20:20', 'BAIXO'),
-    (11, '2021-03-26 10:30', 'MEDIO'),
+    (10, '2021-03-26 10:30', 'MEDIO'),
     (22, '2024-08-09 14:50', 'ALTO'),
     (5, '2023-01-01 00:00', 'BAIXO');
 
@@ -80,7 +81,7 @@ SELECT CONCAT('Empresas parceiras localizadas em Mato Grosso: ', nome, ' ', cnpj
 
 SELECT nome FROM usuariosEmpresa WHERE nomeEmpresa = "Cotrim"; 
     
-SELECT nomeEmpresa FROM usuariosEmpresa WHERE nome LIKE "&Lucas&";
+SELECT nomeEmpresa FROM usuariosEmpresa WHERE nome LIKE "%Daniel%";
 
 SELECT * FROM silos WHERE capacidadeMaxima = 1000;
 
