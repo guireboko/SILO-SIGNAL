@@ -41,17 +41,21 @@ body {
 }
 
 .banner {
-    background-image: url("https://www.logweb.com.br/wp-content/uploads/2023/05/unnamed-2-1.jpg");
-    background-position: center;
+    display: flex;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://blog4.mfrural.com.br/wp-content/uploads/2020/12/silos-agricolas.jpg.webp");
+    background-position: 50% 40%;
     background-repeat: no-repeat;
+    background-size: cover;
     height: 250px;
     color: #F9F9F7;
 }
 
 .banner .container p{
-    justify-content: center;
-    align-items: center;
     font-size: 36px;
+    text-align: right;
+    position: relative;
+    left: 750px;
     width: 30%;
 }
 
@@ -63,19 +67,69 @@ body {
 }
 
 .conteudo .container {
-    margin: auto;
+    margin-right: 50px;
+    margin-left: 120px;
     padding-top: 50px;
     padding-bottom: 50px;
-    padding-right: 70px;
-    align-items: flex-start;
+}
+
+.conteudo .container .texto1 {
+    width: 550px;
+    position: absolute;
+}
+
+.conteudo .container .texto1 h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
 }
 
 .conteudo .container .texto2 {
-
+    order: 2;
+    justify-content: space-evenly;
+    width: 250px;
+    height: 90px;
+    position: absolute;
+    top: 580px;
 }
 
-.conteudo .container .imagem {
+.conteudo .container .texto2 h2 {
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+
+.conteudo .container .texto2 p {
+    margin-top: 5px;
+}
+
+.conteudo .container .texto3 {
+    order: 2;
+    justify-content: space-evenly;
+    width: 250px;
     height: 100px;
+    position: absolute;
+    top: 580px;
+    left: 400px;
+}
+
+.conteudo .container .texto3 h2 {
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+
+.conteudo .container .texto3 p {
+    margin-top: 5px;
+}
+
+.conteudo .container .imagem img {
+    height: 500px;
+    width: 500px;
+    border-top-left-radius: 200px;
+    border-bottom-right-radius: 200px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    align-self: right;
+    left: 600px;
+    position: relative;
 }
 
 button {
@@ -88,6 +142,10 @@ button {
     cursor: pointer;
     transition-duration: 0.4s;
     transition-timing-function: ease-in-out;
+    width: 300px;
+    height: 60px;
+    position: absolute;
+    top: 820px;
 }
 
 
