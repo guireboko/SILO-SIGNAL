@@ -16,6 +16,14 @@ body {
     margin: auto;
 }
 
+/* containerS DE SERVIÇO - SPACEBETWEEN FAZ EU CONSEGUI MEXER O TEXTO N SEI PQ - G */
+.containerS {
+    display: flex;
+    justify-content: space-between;
+    width: 90%; 
+    margin: 50px auto; 
+}
+
 .header .container {
     justify-content: space-between;
     align-items: center;
@@ -66,6 +74,15 @@ body {
     height: auto;
 }
 
+/* COPIEI O DE CIMA E PINTEI DE BRANCO - G */
+.conteudoS {
+    background-color:#fff;;
+    margin: auto;
+    padding: auto;
+    height: auto;
+
+}
+
 .conteudo .container {
     margin-right: 50px;
     margin-left: 120px;
@@ -111,6 +128,7 @@ body {
     left: 400px;
 }
 
+
 .conteudo .container .texto3 h2 {
     font-size: 35px;
     margin-bottom: 5px;
@@ -118,6 +136,18 @@ body {
 
 .conteudo .container .texto3 p {
     margin-top: 5px;
+}
+
+/* TEXTO DO SERVIÇO - EU N SEI O QUE É ORDER MAS FEZ O TEXTO FICAR NA DIREITA - G */
+.conteudoS .containerS .textoS {
+    order: 1;
+    width: 450px;
+    margin-right: 100px;
+}
+
+.conteudoS .containerS .textoS h1 {
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .conteudo .container .imagem img {
@@ -132,7 +162,20 @@ body {
     position: relative;
 }
 
-button {
+
+/* IMAGEM, INVERTI AS BORDAS E DEU CERTO - G  */
+.conteudoS .containerS .imagem img {
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    height: 500px;
+    width: 575px;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 200px;
+    border-top-right-radius: 200px;
+}
+
+/* MUDEI O NOME DO BOTAO PRA PODER COLOCAR OUTRO - G */
+.button {
     background-color: #FBAF00;
     border: 1px solid black;
     color: black;
@@ -149,7 +192,28 @@ button {
 }
 
 
-button:hover {
+.button:hover {
+    background-color: #2F3A4E;
+    color: #FBAF00;
+}
+
+
+/* BOTAO DE SERVIÇOS - COPIEI O DE CIMA E FIZ MUDANÇAS PRA DESCER - G */
+.button1 {
+    background-color: #FBAF00;
+    border: 1px solid black;
+    color: black;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-in-out;
+    width: 300px; 
+    height: 60px;
+    position: absolute;
+    right: 318px;
+    top: 1350px;
+}
+/* PARTE DO QUE COPIEI */
+.button1:hover {
     background-color: #2F3A4E;
     color: #FBAF00;
 }
@@ -166,10 +230,6 @@ button:hover {
     justify-content: space-around;
     width: 700px;
     align-items: center; }
-
-
-
-
 
 /* Centraliza o conteúdo e ajusta a margem e espaçamento */
 main.conteudo {
