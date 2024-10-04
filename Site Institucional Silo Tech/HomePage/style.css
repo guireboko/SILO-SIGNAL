@@ -176,6 +176,7 @@ body {
 
 /* MUDEI O NOME DO BOTAO PRA PODER COLOCAR OUTRO - G */
 .button {
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
     background-color: #FBAF00;
     border: 1px solid black;
     color: black;
@@ -200,6 +201,7 @@ body {
 
 /* BOTAO DE SERVIÇOS - COPIEI O DE CIMA E FIZ MUDANÇAS PRA DESCER - G */
 .button1 {
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
     background-color: #FBAF00;
     border: 1px solid black;
     color: black;
