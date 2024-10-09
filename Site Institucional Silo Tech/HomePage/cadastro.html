@@ -6,7 +6,7 @@
     <title>Cadastro</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="cadastro-page">
     <header class="header">
         <div class="container">
             <h1 class="titulo">Silo Tech</h1>
@@ -39,25 +39,30 @@
     <main class="conteudo">
         <div class="container">
             <form>
-                <label for="name">Nome:</label>
+                <span id="cadastre-se">Cadastre-se</span>
+
+                <label for="name">Nome*</label>
                 <input type="text" id="name" name="name">
 
-                <label for="email">Email:</label>
+                <label for="email">Email*</label>
                 <input type="email" id="email" name="email">
 
-                <label for="username">Nome de Usuário:</label>
+                <label for="username">Nome de Usuário*</label>
                 <input type="text" id="username" name="username">
 
-                <label for="password">Senha:</label>
+                <label for="password">Senha*</label>
                 <input type="password" id="password" name="password">
 
-                <label for="confirm-password">Confirme a senha:</label>
+                <label for="confirm-password">Confirme a senha*</label>
                 <input type="password" id="confirm-password" name="confirm-password">
 
+                <div class="container-button">
                 <button type="submit" id="button_cadastro">Cadastre-se</button>
+                </div>
 
+                <p>Já tem uma conta? <a href="login.html">Login</a></p>
             </form>
-            <p>Já tem uma conta? <a href="login.html">Login</a></p>
+            <!-- <p>Já tem uma conta? <a href="login.html">Login</a></p> -->
         </div>
     </main>
     <footer class="footer">

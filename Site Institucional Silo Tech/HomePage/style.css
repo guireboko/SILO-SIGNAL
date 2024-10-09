@@ -294,6 +294,12 @@ body {
 
 /* Centraliza o conteúdo e ajusta a margem e espaçamento */
 main.conteudo {
+    background-image: url('https://static.vecteezy.com/ti/fotos-gratis/p1/30709545-grao-silos-dentro-a-meio-do-largo-verde-campos-em-uma-ensolarado-dia-generativo-ai-gratis-foto.jpg'); /* Caminho da imagem */
+    background-size: cover; 
+    background-position: center;
+    background-attachment: fixed; 
+    width: 100%;
+    height: 100vh;
     background-color: #8AA032;
     display: flex;
     justify-content: center;
@@ -304,10 +310,11 @@ main.conteudo {
 }
 
 main.conteudo .container {
-    background-color: #fff;
+    height: auto;
+    background-color: rgba(47, 58, 78, 0.948);
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    padding: 25px;
+    padding: 50px;
     width: 100%;
     max-width: 350px;
     text-align: center;
@@ -319,29 +326,41 @@ main.conteudo form {
     flex-direction: column;
     align-items: center;
     width: 100%;
+
 }
 
 main.conteudo label {
     font-weight: bold;
     margin-bottom: 8px;
     font-size: 14px;
-    color: #333;
+    color: #ffffffec;
     align-self: flex-start;
+
+}
+
+#cadastre-se, 
+    #logar-se {
+    color: #ff9800; 
+    font-weight: bold; 
+    font-size: 30px;
+    border-radius: 1px;
 }
 
 main.conteudo input[type="text"], 
 main.conteudo input[type="email"], 
 main.conteudo input[type="password"] {
-    width: 100%;
+    width: 95%;
     padding: 12px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    background-color:  rgba(47, 58, 78, 0.948);
+    color: #ffffffd9;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
 }
 
 main.conteudo button[type="submit"] {
-    background-color: #FBAF00;
+    background-color: #ff9800;
     border: none;
     color: black;
     padding: 12px 15px;
@@ -351,54 +370,64 @@ main.conteudo button[type="submit"] {
 }
 
 main.conteudo button[type="submit"]:hover {
-    background-color: #2F3A4E;
-    color: #FBAF00;
+    background-color:  rgba(47, 58, 78, 0.948);
+    color: #ff9800;
 }
 
 main.conteudo p {
     margin-top: 15px;
     font-size: 14px;
-    color: #666;
+    color: #ffff;
 }
 
 main.conteudo a {
     text-decoration: none;
-    color: #FBAF00;
+    color: #ff9800;
     transition: color 0.3s ease-in-out;
 }
 
 main.conteudo a:hover {
     color: #333;
+}
 
-} #button_login {
-    background-color: #FBAF00;
+.container-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    gap: 10px; 
+    width: 100%;
+
+
+} #button_login, 
+#button_cadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff9800;
     border: none;
     color: black;
     cursor: pointer;
     border-radius: 5px;
-    margin-top: -260px;
-    margin-left: 130px;
+    margin-top: 10px;
+    width: 200px; 
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#button_login:hover {
-    background-color: #2F3A4E;
-    color: #FBAF00;
-} #button_cadastro {
-    background-color: #FBAF00;
-    border: none;
-    color: black;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: -140px;
-    margin-left: 80px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
+#button_login:hover,
 #button_cadastro:hover {
-    background-color: #2F3A4E;
-    color: #8AA032;
+    background-color: #303a4e;
+    color: #ff9800;
 }
+
+/* retirar navbar da tela de login e cadastro */
+body.login-page .navbar,
+body.cadastro-page .navbar {
+    display: none;
+}
+
+
+
 
 
 
