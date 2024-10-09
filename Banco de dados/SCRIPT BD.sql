@@ -61,30 +61,26 @@ WHERE idEmpresa = 4;
 create table silo (
 	idSilo int primary key auto_increment,
     qtdAtual decimal (9, 2),
-    capacidadeMaxima decimal (9, 2),
-    responsavelVistoria varchar(45),
-    dtUltimaVistoria date, 
+    capacidadeMaxima decimal (9, 2), 
     fk_empresa int,
     constraint fkEmpresaResponsavelSilo
 		foreign key (fk_empresa) references empresa(idEmpresa) 
 );
 
 INSERT INTO silo VALUES
-(DEFAULT, '1500', '3000', 'Guilherme de Azevedo', '2024-06-09', 1),
-(DEFAULT, '1200', '2500', 'Shirley Ferreira', '2024-05-15', 1),
-(DEFAULT, '1400', '3200', 'Cleber Machado', '2024-04-20', 2),
-(DEFAULT, '1300', '2900', 'Beatriz Santos', '2024-07-01', 2),
-(DEFAULT, '1500', '3500', 'Rodrigo Souza', '2024-03-10', 3),
-(DEFAULT, '1600', '3100', 'Larissa Oliveira', '2024-08-22', 3),
-(DEFAULT, '1700', '3300', 'Marcos Lima', '2024-02-28', 4),
-(DEFAULT, '1800', '3700', 'Ana Paula Costa', '2024-01-14', 4);
+(DEFAULT, '1500', '3000', 1),
+(DEFAULT, '1200', '2500', 1),
+(DEFAULT, '1400', '3200', 2),
+(DEFAULT, '1300', '2900', 2),
+(DEFAULT, '1500', '3500', 3),
+(DEFAULT, '1600', '3100', 3),
+(DEFAULT, '1700', '3300', 4),
+(DEFAULT, '1800', '3700', 4);
 
 create table sensores (
 	idSensores int primary key auto_increment,
     dtImplementacao date,
-    dtUltimaManutencao date,
-    responsavelManutencao varchar(45),
-    porcentagemDetec dec (4, 2),
+    porcentagemDetec decimal (4, 2),
     instanteDetec datetime,
     perigoBandeira varchar(8),
     constraint ckhBandeira check (perigoBandeira in('Verde', 'Amarela', 'Vermelha')),
@@ -94,15 +90,32 @@ create table sensores (
 );
 
 INSERT INTO sensores VALUES
-(DEFAULT, '2023-12-22', '2024-02-04', 'Guilherme Antonio', '0.12', '2024-02-04 14:25:33', 'Amarela', 1),
-(DEFAULT, '2023-12-22', '2024-02-05', 'Mariana Silva', '0.15', '2024-02-05 10:30:45', 'Vermelha', 1),
-(DEFAULT, '2023-12-23', '2024-02-06', 'Lucas Oliveira', '0.20', '2024-02-06 08:20:10', 'Vermelha', 2),
-(DEFAULT, '2023-12-24', '2024-02-07', 'Felipe Santos', '0.30', '2024-02-07 09:15:25', 'Verde', 3),
-(DEFAULT, '2023-12-25', '2024-02-08', 'Juliana Costa', '0.80', '2024-02-08 12:40:00', 'Verde', 3),
-(DEFAULT, '2023-12-26', '2024-02-09', 'Paulo Henrique', '0.13', '2024-02-09 11:05:33', 'Amarela', 4),
-(DEFAULT, '2023-12-27', '2024-02-10', 'Renata Almeida', '0.60', '2024-02-10 13:25:47', 'Verde', 5),
-(DEFAULT, '2023-12-28', '2024-02-11', 'José Pereira', '0.12', '2024-02-11 14:50:55', 'Amarela', 6),
-(DEFAULT, '2023-12-29', '2024-02-12', 'Camila Rocha', '0.20', '2024-02-12 16:10:12', 'Verde', 6),
-(DEFAULT, '2023-12-30', '2024-02-13', 'Fernando Almeida', '0.28', '2024-02-13 17:35:27', 'Vermelha', 7),
-(DEFAULT, '2023-12-31', '2024-02-14', 'Beatriz Santos', '0.10', '2024-02-14 18:45:18', 'Verde', 8),
-(DEFAULT, '2023-12-31', '2024-02-15', 'Rodrigo Souza', '0.14', '2024-02-15 19:55:45', 'Amarela', 8);
+(DEFAULT, '2023-12-22', '0.12', '2024-02-04 14:25:33', 'Amarela', 1),
+(DEFAULT, '2023-12-22', '0.15', '2024-02-05 10:30:45', 'Vermelha', 1),
+(DEFAULT, '2023-12-23', '0.20', '2024-02-06 08:20:10', 'Vermelha', 2),
+(DEFAULT, '2023-12-24', '0.30', '2024-02-07 09:15:25', 'Verde', 3),
+(DEFAULT, '2023-12-25', '0.80', '2024-02-08 12:40:00', 'Verde', 3),
+(DEFAULT, '2023-12-26', '0.13', '2024-02-09 11:05:33', 'Amarela', 4),
+(DEFAULT, '2023-12-27', '0.60', '2024-02-10 13:25:47', 'Verde', 5),
+(DEFAULT, '2023-12-28', '0.12', '2024-02-11 14:50:55', 'Amarela', 6),
+(DEFAULT, '2023-12-29', '0.20', '2024-02-12 16:10:12', 'Verde', 6),
+(DEFAULT, '2023-12-30', '0.28', '2024-02-13 17:35:27', 'Vermelha', 7),
+(DEFAULT, '2023-12-31', '0.10', '2024-02-14 18:45:18', 'Verde', 8),
+(DEFAULT, '2023-12-31', '0.14', '2024-02-15 19:55:45', 'Amarela', 8);
+
+-- ideias de select:
+-- select com empresa, usuário, silos da empresa, sensor do silo e bandeiras  
+select e.nome as 'Nome da empresa', e.cnpj as 'CNPJ',
+u.nome as 'Usuários da Empresa', u.email as 'E-mail',
+silo.idSilo as 'Indentificador Silo',
+sensor.idSensores as 'Indentificador Sensor', sensor.perigoBandeira as 'Bandeira de Perigosidade'
+from usuario as u
+join empresa as e		
+on e.idEmpresa = u.fkEmpresa	-- esse select não funciona adequadamente devido a modelagem que optamos fazer, tem duas opções: mudar a modelagem pra ficar certinho ou desistir desse mesmo	
+join silo 
+on silo.fk_empresa = e.idEmpresa
+join sensores as sensor
+on sensor.fk_silo = silo.idSilo 
+where fk_empresa = 1 order by u.nome;
+
+-- select com só empresa do frizza, sensores, ultima detecção, %gas, bandeira
