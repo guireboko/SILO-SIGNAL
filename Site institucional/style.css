@@ -1,0 +1,435 @@
+body {
+    background-color: #0000;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+    background-color: #2F3A4E;
+    height: 80px;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    margin: auto;
+}
+
+/* containerS DE SERVIÇO - SPACEBETWEEN FAZ EU CONSEGUI MEXER O TEXTO N SEI PQ - G */
+.containerS {
+    display: flex;
+    justify-content: space-between;
+    width: 90%; 
+    margin: 50px auto; 
+}
+
+.header .container {
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.header a{
+    text-decoration: none;
+    color: #FBAF00;
+}
+
+
+.navbar {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    color: #FBAF00;
+}
+
+.titulo {
+    color: #FBAF00;
+}
+
+.banner {
+    display: flex;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://blog4.mfrural.com.br/wp-content/uploads/2020/12/silos-agricolas.jpg.webp");
+    background-position: 50% 40%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 250px;
+    color: #F9F9F7;
+}
+
+.banner .container p{
+    font-size: 36px;
+    text-align: right;
+    position: relative;
+    left: 750px;
+    width: 30%;
+}
+
+.conteudo {
+    background-color: #8AA032;
+    margin: auto;
+    padding: auto;
+    height: auto;
+}
+
+/* COPIEI O DE CIMA E PINTEI DE BRANCO - G */
+.conteudoS {
+    background-color:#fff;
+    margin: auto;
+    padding: auto;
+    height: auto;
+
+}
+
+.conteudo .container {
+    margin-right: 50px;
+    margin-left: 120px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.conteudo .container .texto1 {
+    width: 550px;
+    position: absolute;
+}
+
+.conteudo .container .texto1 h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.conteudo .container .texto2 {
+    order: 2;
+    justify-content: space-evenly;
+    width: 250px;
+    height: 90px;
+    position: absolute;
+    top: 580px;
+}
+
+.conteudo .container .texto2 h2 {
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+
+.conteudo .container .texto2 p {
+    margin-top: 5px;
+}
+
+.conteudo .container .texto3 {
+    order: 2;
+    justify-content: space-evenly;
+    width: 250px;
+    height: 100px;
+    position: absolute;
+    top: 580px;
+    left: 400px;
+}
+
+.conteudoP {
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    height: auto;
+}
+
+.conteudoP .containerP {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.texto1P {
+    text-align: center; 
+    margin: 0 auto; 
+    width: 700px; 
+}
+
+.texto2P{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 33%;
+}
+
+.texto3P{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 5px;
+}
+
+.containerMvv {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.conteudoP .texto1P h1, 
+.conteudoP .texto2P h2, 
+.conteudoP .texto3P h2, 
+.conteudoP .texto4P h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.conteudoP .imagem {
+    width: 50px;
+    align-self: center;
+}
+
+.conteudoP .imagem img {
+    max-width: 50px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.conteudo .container .texto3 h2 {
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+
+.conteudo .container .texto3 p {
+    margin-top: 5px;
+}
+
+/* TEXTO DO SERVIÇO - EU N SEI O QUE É ORDER MAS FEZ O TEXTO FICAR NA DIREITA - G */
+.conteudoS .containerS .textoS {
+    order: 1;
+    width: 450px;
+    margin-right: 100px;
+}
+
+.conteudoS .containerS .textoS h1 {
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.conteudo .container .imagem img {
+    height: 500px;
+    width: 500px;
+    border-top-left-radius: 200px;
+    border-bottom-right-radius: 200px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    align-self: right;
+    left: 600px;
+    position: relative;
+}
+
+
+/* IMAGEM, INVERTI AS BORDAS E DEU CERTO - G  */
+.conteudoS .containerS .imagem img {
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    height: 500px;
+    width: 575px;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 200px;
+    border-top-right-radius: 200px;
+}
+
+/* MUDEI O NOME DO BOTAO PRA PODER COLOCAR OUTRO - G */
+.button {
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: #FBAF00;
+    border: 1px solid black;
+    color: black;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-in-out;
+    width: 300px;
+    height: 60px;
+    position: absolute;
+    top: 820px;
+}
+
+
+.button:hover {
+    background-color: #2F3A4E;
+    color: #FBAF00;
+}
+
+
+/* BOTAO DE SERVIÇOS - COPIEI O DE CIMA E FIZ MUDANÇAS PRA DESCER - G */
+.button1 {
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: #FBAF00;
+    border: 1px solid black;
+    color: black;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-in-out;
+    width: 300px; 
+    height: 60px;
+    position: absolute;
+    right: 318px;
+    top: 1350px;
+}
+/* PARTE DO QUE COPIEI */
+.button1:hover {
+    background-color: #2F3A4E;
+    color: #FBAF00;
+}
+
+.footer {
+    background-color: #2F3A4E;
+    height: 150px;
+    color: #FBAF00;
+    display: flex;
+    font-size: 15px;
+}
+
+.footer .container {
+    justify-content: space-around;
+    width: 700px;
+    align-items: center; }
+
+/* Centraliza o conteúdo e ajusta a margem e espaçamento */
+main.conteudo {
+    background-image: url('https://static.vecteezy.com/ti/fotos-gratis/p1/30709545-grao-silos-dentro-a-meio-do-largo-verde-campos-em-uma-ensolarado-dia-generativo-ai-gratis-foto.jpg'); /* Caminho da imagem */
+    background-size: cover; 
+    background-position: center;
+    background-attachment: fixed; 
+    width: 100%;
+    height: 100vh;
+    background-color: #8AA032;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+main.conteudo .container {
+    height: auto;
+    background-color: rgba(47, 58, 78, 0.948);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 50px;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+main.conteudo form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+main.conteudo label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #ffffffec;
+    align-self: flex-start;
+
+}
+
+#cadastre-se, 
+    #logar-se {
+    color: #ff9800; 
+    font-weight: bold; 
+    font-size: 30px;
+    border-radius: 1px;
+}
+
+main.conteudo input[type="text"], 
+main.conteudo input[type="email"], 
+main.conteudo input[type="password"] {
+    width: 95%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background-color:  rgba(47, 58, 78, 0.948);
+    color: #ffffffd9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+main.conteudo button[type="submit"] {
+    background-color: #ff9800;
+    border: none;
+    color: black;
+    padding: 12px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+main.conteudo button[type="submit"]:hover {
+    background-color:  rgba(47, 58, 78, 0.948);
+    color: #ff9800;
+}
+
+main.conteudo p {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #ffff;
+}
+
+main.conteudo a {
+    text-decoration: none;
+    color: #ff9800;
+    transition: color 0.3s ease-in-out;
+}
+
+main.conteudo a:hover {
+    color: #333;
+}
+
+.container-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    gap: 10px; 
+    width: 100%;
+
+
+} #button_login, 
+#button_cadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff9800;
+    border: none;
+    color: black;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 200px; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#button_login:hover,
+#button_cadastro:hover {
+    background-color: #303a4e;
+    color: #ff9800;
+}
+
+/* retirar navbar da tela de login e cadastro */
+body.login-page .navbar,
+body.cadastro-page .navbar {
+    display: none;
+}
+
+.container form span {
+    margin-bottom: 20px;
+}
+
+
+
+
+
