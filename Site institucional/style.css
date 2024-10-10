@@ -128,11 +128,14 @@ body {
     left: 400px;
 }
 
+/* INICIO SOBRE PROJETO */
+
 .conteudoP {
     background-color: #fff;
     margin: auto;
     padding: 20px;
-    height: auto;
+    height: 600px;
+    width: ;
 }
 
 .conteudoP .containerP {
@@ -150,7 +153,7 @@ body {
 
 .texto2P{
     display:flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     width: 33%;
 }
@@ -159,7 +162,7 @@ body {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    margin: 5px;
+    
 }
 
 .containerMvv {
@@ -172,21 +175,18 @@ body {
 .conteudoP .texto2P h2, 
 .conteudoP .texto3P h2, 
 .conteudoP .texto4P h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.conteudoP .imagem {
-    width: 50px;
-    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .conteudoP .imagem img {
-    max-width: 50px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 50px;
+    position: relative;
+    top: 2px;
 }
+
+/* FIM DO SOBRE PROJETO */
 
 .conteudo .container .texto3 h2 {
     font-size: 35px;
@@ -326,6 +326,7 @@ main.conteudo form {
     flex-direction: column;
     align-items: center;
     width: 100%;
+
 }
 
 main.conteudo label {
@@ -425,9 +426,7 @@ body.cadastro-page .navbar {
     display: none;
 }
 
-.container form span {
-    margin-bottom: 20px;
-}
+
 
 
 
