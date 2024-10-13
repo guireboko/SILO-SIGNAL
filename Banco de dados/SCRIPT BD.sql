@@ -24,7 +24,7 @@ CREATE TABLE usuario (
     nome VARCHAR(45), 
     cargo VARCHAR(45),
     whatsapp CHAR(11),
-    telComercial CHAR(13),
+    telComercial CHAR(10),
     email VARCHAR(45),
     CONSTRAINT fk_usuario_responsavel
         FOREIGN KEY (fkResponsavel) REFERENCES usuario(idusuario),

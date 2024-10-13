@@ -309,14 +309,25 @@ main.conteudo {
     padding: 0;
 }
 
-main.conteudo .container {
+main.conteudo .containerLogin {
     height: auto;
     background-color: rgba(47, 58, 78, 0.948);
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     padding: 50px;
     width: 100%;
-    max-width: 350px;
+    max-width: 450px;
+    text-align: center;
+    transition: box-shadow 0.3s ease-in-out;
+}
+main.conteudo .containerCadastro {
+    height: auto;
+    background-color: rgba(47, 58, 78, 0.948);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 50px;
+    width: 100%;
+    max-width: 750px;
     text-align: center;
     transition: box-shadow 0.3s ease-in-out;
 }
@@ -338,20 +349,27 @@ main.conteudo label {
 
 }
 
-#cadastre-se, 
-    #logar-se {
+.tittleLog {
     color: #ff9800; 
     font-weight: bold; 
     font-size: 30px;
     border-radius: 1px;
 }
 
-main.conteudo input[type="text"], 
-main.conteudo input[type="email"], 
-main.conteudo input[type="password"] {
+.subTittle {
+    display: flex;
+    align-self: flex-start;
+    color: #ff9800;
+    font-weight: bold;
+    border-radius: 1px;
+}
+
+
+/* é nesse aqui pra fazer a validação em vermelho*/
+main.conteudo .input {
     width: 95%;
     padding: 12px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     background-color:  rgba(47, 58, 78, 0.948);
     color: #ffffffd9;
     border: 1px solid #ddd;
@@ -359,6 +377,20 @@ main.conteudo input[type="password"] {
     font-size: 16px;
 }
 
+main.conteudo .subcontainer{
+    display: flex;
+}
+main.conteudo .subcontainer input {
+    /* width: 95%; */
+    padding: 12px;
+    margin-bottom: 5px;
+    margin: 10px;
+    background-color:  rgba(47, 58, 78, 0.948);
+    color: #ffffffd9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
 main.conteudo button[type="submit"] {
     background-color: #ff9800;
     border: none;
@@ -374,10 +406,15 @@ main.conteudo button[type="submit"]:hover {
     color: #ff9800;
 }
 
+#divError {
+    color: #ff0000;
+    text-shadow: 1px 1px 1px black;
+}
+
 main.conteudo p {
-    margin-top: 15px;
+    margin: 2px;
     font-size: 14px;
-    color: #ffff;
+    
 }
 
 main.conteudo a {
@@ -407,6 +444,7 @@ main.conteudo a:hover {
     background-color: #ff9800;
     border: none;
     color: black;
+    font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
     margin-top: 10px;
@@ -418,11 +456,21 @@ main.conteudo a:hover {
 #button_cadastro:hover {
     background-color: #303a4e;
     color: #ff9800;
+    font-weight: bold;
+}
+
+.span_center {
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    display: flex;
+    margin: 10px;
+    
 }
 
 /* retirar navbar da tela de login e cadastro */
 body.login-page .navbar,
-body.cadastro-page .navbar {
+body.cadastro_page .navbar {
     display: none;
 }
 
