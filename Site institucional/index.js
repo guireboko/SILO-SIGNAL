@@ -27,7 +27,7 @@ function validarNomeEmpresa() {
     if (qtdName > 45) {
         validName = false;
         errorMensage = 'O nome excede a quantidade de caracteres permitida';
-    } else if (nameHasArroba || nameHasExclama || nameHasInterrog || nameHasHashtag || nameHasCifrao || nameHasPorcent || nameHasAsteris || nameHasPonto) {
+    } else if (nameHasArroba || nameHasExclama || nameHasInterrog || nameHasHashtag || nameHasCifrao || nameHasPorcent || nameHasAsteris || nameHasPonto || nameHasE) {
         validNameEmpresa = false;
         errorMensage = 'O nome não pode conter caracteres especiais';
     } else {
@@ -94,7 +94,7 @@ function validarEmailEmpresa() {
     if (qtdDigitos > 45) {
         validEmailEmpresa = false;
         errorMensage = 'O e-mail excede a quantidade de caracteres permitido';
-    } else if (emailHasAsteris || emailHasExclama || emailHasInterrog || emailHasCifrao || emailHasPorcent) {
+    } else if (emailHasAsteris || emailHasExclama || emailHasInterrog || emailHasCifrao || emailHasPorcent || emailHasHashtag) {
         validEmailEmpresa = false;
         errorMensage = 'O e-mail não deve conter caracteres especiais';
     } else if (emailHasArroba) {
@@ -161,7 +161,7 @@ function validarEmail() {
     if (qtdDigitos > 45) {
         validEmail = false;
         errorMensage = 'O e-mail excede a quantidade de caracteres permitido';
-    } else if (emailHasAsteris || emailHasExclama || emailHasInterrog || emailHasCifrao || emailHasPorcent) {
+    } else if (emailHasAsteris || emailHasExclama || emailHasInterrog || emailHasCifrao || emailHasPorcent || emailHasHashtag) {
         validEmail = false;
         errorMensage = 'O e-mail não deve conter caracteres especiais';
     } else if (emailHasArroba) {
@@ -232,12 +232,15 @@ function validarPassword() {
         hasNumber = true;
     }
 
-    if (qtdDigitos >= 8 && hasCharEspecial && hasNumber) {
+    var hasUpperCase = password !== password.toLowerCase(); //tem letra minuscula
+    var hasLowerCase = password !== password.toUpperCase(); //tem letra maiuscula
+
+    if (qtdDigitos >= 8 && hasCharEspecial && hasNumber && hasUpperCase && hasLowerCase) {
         validPassword = true;
         errorMensage = '';
     } else {
         validPassword = false;
-        errorMensage = 'A senha deve conter ao menos 8 caracteres, 1 número e 1 caractere especial';
+        errorMensage = 'A senha deve conter ao menos 8 caracteres, 1 número e 1 caractere especial, 1 letra maiúscula e 1 minúscula.';
     }
     exibirErro()
 }
