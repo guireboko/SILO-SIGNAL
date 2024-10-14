@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
 </head>
 
 <body class="login-page">
@@ -13,11 +14,13 @@
         <div class="containerLogin">
             <form>
                 <span class="tittleLog">Login</span>
-                <label for="username">Email:</label>
-                <input class="input" type="text" id="username" name="username">
+                <label for="userEmail">Email:</label>
+                <input class="input" type="text" id="userEmail" name="userEmail" oninput="validarEmailLogin()">
 
-                <label for="ipt_password">Senha:</label>
-                <input class="input" type="password" id="ipt_password" name="password">
+                <label for="iptUserPassword">Senha:</label>
+                <input class="input" type="password" id="iptUserPassword" name="password" oninput="validarPasswordLogin()">
+                
+                <div id="divErrorLogin"></div>
 
                 <div class="container-button">
                     <button type="submit" id="button_login">Login</button>
