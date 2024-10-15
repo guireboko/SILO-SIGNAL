@@ -410,6 +410,10 @@ main.conteudo button[type="submit"]:hover {
     color: #ff0000;
     text-shadow: 1px 1px 1px black;
 }
+#divErrorLogin {
+    color: #ff0000;
+    text-shadow: 1px 1px 1px black;
+}
 
 main.conteudo p {
     margin: 2px;
