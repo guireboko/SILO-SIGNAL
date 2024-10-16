@@ -1,3 +1,16 @@
+// Definir vida util do silo
+// Tirar tempo utilizado e se limpa 
+
+// Colocae o valor da cota da soja como uma variavel 
+
+// Variavel para poder colocar o valor do seu silo 
+
+// Deixar tudo mais intuitivo e responsivo com o CSS (Se DragEvent, colocar animação)
+
+// Izinho pra entender de onde veio os valores de risco
+
+
+
 function calcRisco() {
     // Definindo as variáveis dos inputs
     var qtdSilo = Number(input_qtdSilo.value);
@@ -47,7 +60,7 @@ function calcRisco() {
         div_mensagem2.innerHTML = `<br> Devido os silos não estarem próximos/interligados, uma possível explosão se limitaria a apenas um silo.`;
     };
 
-    if (limpaSilo == 'Não') {
+    if (limpaSilo == 'Não') {   
         if (tempoSilo < 52) {
             div_mensagem3.innerHTML = `<br> Por não limpar, ainda há o risco de <b>${((riscoSujoUsuario) * 100).toFixed(5)}%</b> de se explodir o(s) silo(s) vazio(s), gerando a perda infraestrutural de <b style="color:red"> R$${perdaSujo.toFixed(2)}</b> <br>`;
         } else {

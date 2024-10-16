@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <h1>Simulador financeiro</h1>
+    <div id="div1">
+    Quantidade de silos: <input type="number" id="inputSilos"> <br>
+    </div>
+
+    <div id="div2">
+    Eles estão próximos? 
+    <select id="selectProximo">
+        <option>Sim</option>
+        <option>Não</option>
+    </select>
+    <br>
+    </div>
+
+    <div id="div3">
+    Valor da cota de soja: <input type="number" id="inputSoja">
+    </div>
+
+    <button onclick="verificar()">Ver Silos</button>
+    <button onclick="calcular()">Calcular</button>
+
+
+
+    <div id="div_mensagem"></div>
+    <div id="div_mensagem1"></div>
+    <div id="div_mensagem2"></div>
+    <div id="div_mensagem3"></div>
+    <div id="div_mensagem4"></div>    
+</body>
+</html>
+
+<script>
+    div1.style.display = 'block'
+    div2.style.display = 'none' 
+    div3.style.display = 'none'
+
+
+
+
+    function verificar() {
+        var silo = Number(inputSilos.value);
+        var mensagem = '';
+        div_mensagem1.innerHTML = ''
+        div_mensagem2.innerHTML = ''
+        div_mensagem3.innerHTML = ''
+
+        for (var contador = 1; contador <= silo; contador++) {
+            mensagem += `
+                <div style="display: inline-table;">
+                    <img src="silo.png" onclick="clicarSilo(${contador})" id="silo${contador}" style="cursor: pointer;background-color: #fff;">
+                    <div id="inputContainer${contador}" style="display:none;">
+                        Capacidade do silo em toneladas: <input type="number" id="inputCapacidade${contador}"style="width: 80px; "><br>
+                        Preço do Silo: <input type="number" id="inputPreco${contador}"style="width: 80px;"><br>
+                        Preenchimento do silo atual: <select id="inputPreenchimento${contador}"style="width: 80px;">
+                                                                <option value="0">0%</option>
+                                                                <option value="20">20%</option>
+                                                                <option value="40">40%</option>
+                                                                <option value="60">60%</option>
+                                                                <option value="80">80%</option>
+                                                                <option value="100">100%</option>
+                                                            </select>
+                    </div>
+                </div>
+                `
+        }
+
+        if(silo > 1){
+            div1.style.display = 'block'
+            div2.style.display = 'block'
+            div3.style.display = 'block'
+        }else{
+            div1.style.display = 'block'
+            div2.style.display = 'none'
+            div3.style.display = 'block'
+        }
+
+
+        div_mensagem.innerHTML = mensagem;
+
+    }
+
+    function clicarSilo(siloId) {
+        var inputContainer = document.getElementById(`inputContainer${siloId}`)
+        if (inputContainer.style.display == 'none') {
+            inputContainer.style.display = 'table-row'
+        }else {
+            inputContainer.style.display = 'none'
+        }
+    }
+
+
+    function calcular() {
+        var totalCapacidade = 0
+        var totalPreenchimento = 0
+        var totalPreco = 0
+        var proximo = selectProximo.value
+        var soja = Number(inputSoja.value)
+        var silo = Number(inputSilos.value)
+        
+
+        for (var contador = 1; contador <= silo; contador++) {
+            var capacidade = Number(document.getElementById(`inputCapacidade${contador}`).value)
+            var preenchimento = Number(document.getElementById(`inputPreenchimento${contador}`).value)
+            var preco = Number(document.getElementById(`inputPreco${contador}`).value)
+
+            totalCapacidade += capacidade; // soma as capacidades dos silos
+            totalPreenchimento += (capacidade * preenchimento / 100); // calcula o total de preenchimento
+            totalPreco += preco
+        }
+
+        var perdaSoja = (totalPreenchimento*1000/60)*soja 
+         
+        // Exibe os resultados
+        div_mensagem1.innerHTML = `Capacidade total: ${totalCapacidade} toneladas`
+        div_mensagem2.innerHTML = `Preenchimento total: ${totalPreenchimento.toFixed(0)} toneladas`
+        div_mensagem3.innerHTML = `O preco total dos silos são de R$${totalPreco}<br>`
+
+        if(proximo == 'Sim'){
+             div_mensagem3.innerHTML += `A perda dos silos seria de <b style="color:red"> R$${perdaSoja.toFixed(2)} </b> em saca de soja, mais <b style="color:red"> R$${totalPreco.toFixed(2)} </b> na perda dos silos, sendo um total de <b style="color:red"> R$${(perdaSoja+totalPreco).toFixed(2)} </b> de prejuizo `
+        }else
+            div_mensagem3.innerHTML += `A média da perda de um silo seria de <b style="color:red"> R$${(perdaSoja/silo).toFixed(2)} </b> em saca de soja, mais <b style="color:red"> R$${(totalPreco/silo).toFixed(2)} </b> na perda dos silos, 
+            sendo um total de <b style="color:red"> R$${(perdaSoja/silo+totalPreco/silo).toFixed(2)} </b> de prejuizo `
+    }
+</script>
