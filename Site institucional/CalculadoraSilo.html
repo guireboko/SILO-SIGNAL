@@ -10,12 +10,12 @@
 
 <body>
     <div class="header" id="header">
-        <div class="header-container">
-            <h1 class="titulo">Silo Tech</h1>
+        <div class="header-container">  
+            <h1 class="titulo" onclick="window.location.href='homepage.html'" style="cursor: pointer;">Silo Tech</h1>
 
             <ul class="navbar">
                 <li>
-                    <a href="#servicos">Serviços</a>
+                    <a href="homepage.html#servicos">Serviços</a>
                 </li>
                 <li>
                     <a href="CalculadoraSilo.html">Simulador</a>
@@ -190,13 +190,19 @@
         div_mensagem3.innerHTML = `O preco total dos silos são de R$${totalPreco}<br>`
 
         if (proximo == 'Sim') {
-            div_mensagem3.innerHTML += `A perda dos silos seria de <b style="color:red"> R$${perdaSoja.toFixed(2)} </b> em saca de soja, mais <b style="color:red"> R$${totalPreco.toFixed(2)} </b> na perda dos silos, sendo um total de <b style="color:red"> R$${(perdaSoja + totalPreco).toFixed(2)} </b> de prejuizo `
+            div_mensagem3.innerHTML += `A perda dos silos seria de <b style="color:red"> R$${perdaSoja.toFixed(2)} </b> em saca de soja, mais <b style="color:red"> R$${totalPreco.toFixed(2)} </b> na perda dos silos, sendo um total de <b style="color:red"> R$${(perdaSoja + totalPreco).toFixed(2)} </b> de prejuizo 
+             <br> Total de explosões na última decada: <b style="color:red"> 81 </b>
+    <img src="informacao.png" style="width: 20px; cursor: pointer;" onclick="mostrarFonte()">`
         } else
             div_mensagem3.innerHTML += `A média da perda de um silo seria de <b style="color:red"> R$${(perdaSoja / silo).toFixed(2)} </b> em saca de soja, mais <b style="color:red"> R$${(totalPreco / silo).toFixed(2)} </b> na perda dos silos, 
-            sendo um total de <b style="color:red"> R$${(perdaSoja / silo + totalPreco / silo).toFixed(2)} </b> de prejuizo `
-
-        div_mensagem3 += `Risco ${Teste}`
-
+            sendo um total de <b style="color:red"> R$${(perdaSoja / silo + totalPreco / silo).toFixed(2)} </b> de prejuizo
+            <b style="color:red"> 81 </b> 
+                <img src="informacao.png" style="width: 20px; cursor: pointer;" onclick="mostrarFonte()">`
     }
+
+    function mostrarFonte() {
+    alert("Fonte: https://www.purdue.edu/engineering/ABE/agconfinespaces/wp-content/uploads/2022/06/2021-Summary-of-US-Ag-Confined-Space-FINAL-4.19.22.pdf ");
+}
+
 
 </script>

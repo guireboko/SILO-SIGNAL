@@ -188,6 +188,8 @@ body {
     margin: 50px auto; 
 }
 
+/* CONTEUDO DO SOBRE/PROJETO */
+
 .conteudoP {
     background-color: #fff;
     margin: auto;
@@ -244,7 +246,7 @@ body {
     top: 2px;
 }
 
-/* FIM DO SOBRE PROJETO */
+/* FIM DO SOBRE/PROJETO */
 
 .conteudo .container .texto3 h2 {
     font-size: 35px;
@@ -323,6 +325,8 @@ body {
     color: #FBAF00;
 }
 
+/* FIM DO SERVICOS */
+
 .footer {
     display: flex;
     justify-content: space-between;
@@ -364,7 +368,7 @@ main.conteudo {
     background-position: center;
     background-attachment: fixed; 
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: #8AA032;
     display: flex;
     justify-content: center;
@@ -375,23 +379,23 @@ main.conteudo {
 }
 
 main.conteudo .containerLogin {
-    height: auto;
+    height: 350px;
     background-color: rgba(47, 58, 78, 0.948);
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    padding: 50px;
+    padding: 20px;
     text-align: center;
     transition: box-shadow 0.3s ease-in-out;
 }
 main.conteudo .containerCadastro {
     display: flex;
     flex-direction: column;
-    height: 600px;
+    height: 750px;
     width: 400px;
     background-color: rgba(47, 58, 78, 0.948);
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    padding: 50px;
+    padding: 30px;
     text-align: center;
     transition: box-shadow 0.3s ease-in-out;
 }
@@ -404,6 +408,28 @@ main.conteudo form {
     align-items: center;
     width: 100%;
     transform: scale(0.8);
+}
+
+main.conteudo .formLogin {
+    display: flex;
+    margin-top: 30px;
+    top: -50px;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    transform: scale(0.8);
+}
+
+main.conteudo .logo img {
+    width: 200px; 
+    height: auto;
+    cursor: pointer;
+}
+
+main.conteudo .logoLogin img {
+    width: 150px; 
+    height: auto;
+    cursor: pointer;
 }
 
 main.conteudo label {
@@ -584,6 +610,7 @@ body.cadastro_page .navbar {
     width: 300px;
     height: 300px;
     border-radius: 50%;
+    object-fit: cover;
     align-self: center;
 }
 
@@ -672,3 +699,9 @@ body.cadastro_page .navbar {
     background-color: #2F3A4E;
     color: #FBAF00;
 }
+
+.text-time{
+    text-align: center; 
+    margin: 0 auto; 
+    width: 700px; 
+} 
