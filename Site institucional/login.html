@@ -6,24 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
 </head>
 
 <body class="login-page">
     <main class="conteudo">
-        <div class="container">
+        <div class="containerLogin">
             <form>
-                <h1></h1>
-                <span id="logar-se">Login</span>
-                <label for="username">Nome de Usuário:</label>
-                <input type="text" id="username" name="username">
+                <span class="tittleLog">Login</span>
+                <label for="userEmail">Email:</label>
+                <input class="input" type="text" id="userEmail" name="userEmail" oninput="validarEmailLogin()">
 
-                <label for="password">Senha:</label>
-                <input type="password" id="password" name="password">
+                <label for="iptUserPassword">Senha:</label>
+                <input class="input" type="password" id="iptUserPassword" name="password" oninput="validarPasswordLogin()">
+                
+                <div id="divErrorLogin"></div>
 
                 <div class="container-button">
                     <button type="submit" id="button_login">Login</button>
                 </div>
-                <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se!</a></p>
+                <span class="span_center">Não tem uma conta? <a href="cadastro.html"> Cadastre-se!</a></span>
 
             </form>
         </div>

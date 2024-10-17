@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Silo Tech | Página Inicial</title>
-
     <link rel="stylesheet" href="./style.css">
+    <script src="index.js"></script>
 </head>
+
 <body>
-    <div class="header">
+    <div class="header" id="header">
         <div class="header-container">
             <h1 class="titulo">Silo Tech</h1>
 
@@ -39,53 +41,92 @@
         </div>
     </div>
 
-        <div class="conteudo">
-            <div class="conteudo-container">
-                <div class="texto1">
-                    <h1>O que oferecemos?</h1>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque cum quisquam nulla dolorem corporis autem in repellendus ab sint ducimus impedit rerum dolores, temporibus, ea quae accusantium inventore animi veniam.
-                        Repellendus totam dolore accusantium, harum laborum quasi eos error beatae necessitatibus quos distinctio, similique voluptates! Accusamus voluptatum provident dolores quidem. Vero, libero!</p>
+    <div class="conteudo">
+        <div class="conteudo-container">
+            <div class="texto1">
+                <h1>O que oferecemos?</h1>
+                <p>Através de soluções IoT, baseadas em sensores de monitoramento que captam dados em tempo real,
+                    apoiamos produtores de soja do Brasil contra o risco de vazamento de gás em seus silos, trazendo
+                    segurança e qualidade para o armazenamento de suas colheitas.br <br>
+                    <br>Damos ferramenta e suporte para que você possa detectar potenciais riscos e tomar decisões
+                    assertivas para redução de danos, garantindo a segurança dos silos e de todos que trabalham ao redor
+                    do espaço, prezando pelas vidas humanas. <br>
+                    <br>O segmento de soja é gigante e muito importante no cenário econômico brasileiro. <br> Em 2023, o
+                    Brasil consolidou-se como o maior produtor e exportador de soja do mundo.
+                    como mostra os dados abaixo:
+                </p>
+            </div>
+            <div class="texto2-3">
+                <div class="texto2">
+                    <h2>6% do PIB nacional</h2>
+                    <p>O mercado da soja hoje <br> representa 6% do PIB brasileiro.</p>
                 </div>
-                <div>
-                    <div class="texto2">
-                        <h2>200%</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, sapiente? Nobis cupiditate, aperiam ratione, quisquam fugiat autem est beatae a enim, recusandae ipsam pariatur fugit tempora ducimus atque reprehenderit earum?</p>
-                    </div>
-                    <div class="texto3">    
-                        <h2>88 toneladas</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, laudantium harum sed adipisci fugiat ut quod, numquam, maiores corporis architecto modi? Maxime corrupti soluta impedit nihil quod adipisci vero architecto.</p>
-                    </div> 
-                </div>
-                <button class='button' href="#servicos">Conheça mais sobre nossos serviços</button>
-                <div class="imagem">
-                    <img src="https://www.siacon.com.br/BlogSIA/wp-content/uploads/2022/08/168066.jpg">
+                <div class="texto3">
+                    <h2>US$ 60 Bilhões</h2>
+                    <p>Em exportações <br>para mais de 50 países em 2023.</p>
                 </div>
             </div>
+            <div class="button-home">
+                <button class='button'>Conheça mais sobre nossos serviços</button>
+            </div>
         </div>
+        <div class="imagem2">
+            <img src="https://st3.depositphotos.com/1480128/15820/i/450/depositphotos_158202126-stock-photo-agricultural-soy-plantation-on-sunny.jpg">
+        </div>
+    </div>
 
     <div class="conteudoS" id="servicos">
         <div class="containerS">
             <div class="textoS">
                 <h1>Nossos serviços</h1>
-                <p>Monitoramento de Luminosidade</p>
-                <p>Por meio de sensores LDR e Arduino Uno R3, oferecemos o serviço ideal para o monitoramento da intensidade de luz em sua plantação de lúpulo, através de gráficos que são atualizados e acessados em um site exclusivo para sua empresa obter detalhes dos niveis de luminosidade de sua plantação em tempo real.</p>
-                <p>Além do monitoramento em tempo real, também enviamos notificações e alertas em caso de irregularidades nos níveis de luminosidade, para você tomar as devidas tratativas cabíveis de forma segura e assertiva.</p>
-                <p>Enviamos nossos produtos para todo o Brasil, junto de um manual de instalação, além do nosso suporte integral.</p>
+                <p class="p-servicos">Monitoramento de vazamento de gás</p>
+                <p>
+                    Por meio de sensores MQ-2 e Arduíno Uno R3, oferecemos o serviço ideal para o monitoramento de
+                    possíveis vazamentos de gás em seu silo, através de gráficos e indicadores que são atualizados em
+                    tempo real e acessados através de um site para sua empresa obter detalhamentos do silo em uma
+                    dashboard.<br>
+                    <br>Além do monitoramento em tempo real, também enviamos notificações e alertas em caso de
+                    irregularidades nos níveis de gases emitidos dentro do silo, para você tomar as devidas tratativas
+                    cabíveis de forma segura e assertiva.
+                    Prestamos serviço e enviamos nossos produtos para todo o Brasil, junto de nosso manual de
+                    instalação, além do nosso suporte integral.
+                </p>
+                <button class='button1'>Acesse o nosso simulador financeiro!</button>
             </div>
-            <button class='button1'>Acesse o nosso simulador financeiro!</button>
-            <div class="imagem">
+            <div class="imagem1">
                 <img src="https://www.siacon.com.br/BlogSIA/wp-content/uploads/2022/08/168066.jpg">
             </div>
         </div>
     </div>
 
-    
-
     <div class="footer">
         <div class="container">
-            <h1 class="titulo">SiloTech</h1>
-            <h4 class="h4">© 2024 Silo Tech - Todos direitos reservados.</h4>
+            <div>
+                <h1 class="titulo">SiloTech</h1>
+            </div>
+            <div class="fale-conosco">
+                <p class="p-fale-conosco"><a href="faleConosco.html" class="a-fale-conosco">Fale conosco</a></p>
+                <h4 class="h4">© 2024 Silo Tech - Todos direitos reservados.</h4>
+            </div>
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#fbaf00" viewBox="0 0 256 256">
+                    <path
+                        d="M232,128a104.16,104.16,0,0,1-91.55,103.26,4,4,0,0,1-4.45-4V152h24a8,8,0,0,0,8-8.53,8.17,8.17,0,0,0-8.25-7.47H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,8-8.53A8.17,8.17,0,0,0,167.73,80H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0-8,8.53A8.17,8.17,0,0,0,96.27,152H120v75.28a4,4,0,0,1-4.44,4A104.15,104.15,0,0,1,24.07,124.09c2-54,45.74-97.9,99.78-100A104.12,104.12,0,0,1,232,128Z">
+                    </path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#fbaf00" viewBox="0 0 256 256">
+                    <path
+                        d="M215,219.85a8,8,0,0,1-7,4.15H160a8,8,0,0,1-6.75-3.71l-40.49-63.63L53.92,221.38a8,8,0,0,1-11.84-10.76l61.77-68L41.25,44.3A8,8,0,0,1,48,32H96a8,8,0,0,1,6.75,3.71l40.49,63.63,58.84-64.72a8,8,0,0,1,11.84,10.76l-61.77,67.95,62.6,98.38A8,8,0,0,1,215,219.85Z">
+                    </path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#fbaf00" viewBox="0 0 256 256">
+                    <path
+                        d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24ZM96,176a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0ZM88,96a12,12,0,1,1,12-12A12,12,0,0,1,88,96Zm96,80a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140Z">
+                    </path>
+                </svg>
+            </div>
         </div>
     </div>
 </body>
+
 </html>

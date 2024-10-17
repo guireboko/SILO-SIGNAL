@@ -1,0 +1,61 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silo Interativo</title>
+    <style>
+        .container {
+        position: relative;
+        width: 200px;
+        height: 400px;
+        margin: 20px auto;
+        }
+
+        .silo {
+        width: 100%;
+        height: 100%;
+        background-image: url('silo.png');
+        background-size: cover;
+        cursor: pointer;
+        }
+
+        .nivel {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 50%; /* Esse valor pode ser alterado dinamicamente com JS */
+        background: rgba(0, 128, 0, 0.7); /* Cor do preenchimento do silo */
+        transition: height 0.3s ease;
+        }
+
+        .message {
+        text-align: center;
+        font-size: 1.2em;
+        margin-top: 20px;
+        }
+    </style>
+    </head>
+    <body>
+
+    <div class="container">
+    <div class="silo" onclick="alterarNivel()">
+        <div id="nivel" class="nivel"></div>
+    </div>
+    <div class="message" id="mensagem">Clique no silo para alterar o nível</div>
+    </div>
+
+    <script>
+    let nivelAtual = 50; // Percentual inicial do nível
+    const nivelElemento = document.getElementById('nivel');
+    const mensagem = document.getElementById('mensagem');
+
+    function alterarNivel() {
+        nivelAtual = (nivelAtual + 10) % 110; // Incrementa 10% até 100%, depois volta para 0
+        nivelElemento.style.height = `${nivelAtual}%`;
+        mensagem.textContent = `Nível do silo: ${nivelAtual}%`;
+    }
+    </script>
+
+    </body>
+    </html>
