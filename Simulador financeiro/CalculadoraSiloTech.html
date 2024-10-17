@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="calculadoraSiloTech.js"></script>
+</head>
+
+<body>
+    <div>
+    <div class="container">
+        <h1 id="titulo">Simulador Financeiro</h1>
+        <h3>Nessa simulação, calcularemos o risco de explosão em seu silo, o valor da possível perda e a comparação com a nossa solução.</h3>
+        <p>
+        Quantidade de silos: <input  type="number" id="input_qtdSilo">
+        <br>     
+        Eles estão interligados/próximos? (Sim ou Não)
+        <select id="input_conexaoSilo">
+            <option>Sim</option>
+            <option>Não</option>
+        </select>
+        <br>
+        Capacidade média dos silos, em toneladas: <input type="number" id="input_capacidadeSilo">
+        <br>
+        Tempo que são utilizados num ano, em semanas: <input type="number" id="input_tempoSilo">
+        <br>
+        Se limpa o silo após esvaziá-lo? (Sim ou Não)
+        <select id="input_limpaSilo">
+            <option>Sim</option>
+            <option>Não</option>
+        </select>
+        <br><br>
+        
+        <button onclick="calcRisco()">Calcular Risco</button>
+
+        <div id="div_mensagem1"></div>
+        <div id="div_mensagem2"></div>
+        <div id="div_mensagem3"></div>
+        <div id="div_mensagem4"></div>
+        </p>
+    </div>
+</div>
+</body>
+
+</html>

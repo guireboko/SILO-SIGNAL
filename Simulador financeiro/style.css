@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    background-color: #2d3a50;
+    flex-direction: column;
+    flex: content;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    container: initial;
+    margin-left: 250px;
+    background-color: #ecf8f8;
+    padding: 20px;
+    max-width: 1000px;
+    border-radius: 10px;
+    flex-direction: column;
+    flex: content;
+    align-items: center;
+    justify-content: center;
+}
+
+#titulo {
+    margin-left: 350px;
+}
+
+.container p {
+    margin-left: 300px;
+    flex-direction: column;
+}
+.container select {
+    width: 177px;
+    text-align: center;
+}
+
+.container button {
+    width: 150px;
+    height: 45px;
+
+}
+
+#div_mensagem1 {
+    margin-top: 20px;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+</head>
+
+<body class="login-page">
+    <main class="conteudo">
+        <div class="containerLogin">
+            <div class="logoLogin">
+                <img src="logoGenerica.png" onclick="window.location.href='homepage.html'">
+            </div>
+            <form class="formLogin">
+                <span class="tittleLog">Login</span>
+                <label for="userEmail">Email:</label>
+                <input class="input" type="text" id="userEmail" name="userEmail" oninput="validarEmailLogin()">
+
+                <label for="iptUserPassword">Senha:</label>
+                <input class="input" type="password" id="iptUserPassword" name="password" oninput="validarPasswordLogin()">
+                
+                <div id="divErrorLogin"></div>
+
+                <div class="container-button">
+                    <button type="submit" id="button_login">Login</button>
+                </div>
+                <span class="span_center">Não tem uma conta? <a href="cadastro.html"> Cadastre-se!</a></span>
+
+            </form>
+        </div>
+            <!-- <div class="login-imagem">
+                <img src="https://digital.agrishow.com.br/sites/agrishow.com/files/uploads/2017/11/shutterstock_112362932.jpg" alt="">
+            </div> -->
+    </main>
+</body>
+
+</html>

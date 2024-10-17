@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    div {
+      position: relative;
+      margin: 20px;
+    }
+    #NiveisExt, #GasMensal, #GasHora, #MapeamentoSemanal {
+      width: 400px;
+      height: 400px;
+    }
+
+    #Alerta {
+      width: 200px;
+      height: 200px;
+    }
+
+
+  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <canvas id="NiveisExt"></canvas>
+       
+      </div>
+      <div>
+
+        <canvas id="Alerta"></canvas>
+      </div>
+      <div>
+        <canvas id="GasMensal"></canvas>
+
+      </div>
+      <div>
+        <canvas id="GasHora"></canvas>
+      </div>
+      <div>
+        <canvas id="MapeamentoSemanal"></canvas>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
+<script>
+    const ctx = document.getElementById('NiveisExt');
+  
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Sensor 1', 'Sensor 2', 'Sensor 3', 'Sensor 4', 'Sensor 5', 'Sensor 6'],
+        datasets: [{
+          label: 'Nível de Gás Mínimo',
+          data: [0.1, 1, 0.5, 0.6, 1.2, 2],
+          borderWidth: 1,
+          borderColor: 'rgb(0, 255, 0)',
+          backgroundColor: 'rgb(0, 255, 0)'
+        },
+        {
+            label: 'Nível de Gás Maximo',
+          data: [5, 6, 4, 11, 3, 10],
+          borderWidth: 1,
+          borderColor: 'rgb(160, 32, 240)',
+          backgroundColor: 'rgb(160, 32, 240)'
+        }
+    ]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    const ctx2 = document.getElementById('Alerta');
+
+new Chart(ctx2, {
+  type: 'pie',
+  data: {
+    labels: ['Normal', 'Atenção', 'Alerta'], 
+    datasets: [{
+      label: 'Bandeira',
+      data: [42, 21, 32],
+      borderWidth: 2,
+      borderColor: '#fff',
+      backgroundColor: ['rgb(0, 255, 0)', 'rgb(255, 255, 0)', 'rgb(255, 0, 0)'] 
+    }]
+  },
+  options: {
+    plugins: {
+      legend: {
+        display: true,
+        position: 'top'
+      }
+    }
+  }
+});
+
+const ctx3 = document.getElementById('GasMensal');
+  
+  new Chart(ctx3, {
+    type: 'bar',
+    data: {
+      labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 
+                'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+      datasets: [{
+        label: 'Nível Médio de Gás Mensal',
+        data: [2, 1, 5, 9, 1, 3, 2, 4, 6, 8, 11, 2],
+        borderWidth: 1,
+        borderColor: 'rgb(0, 0, 255)',
+        backgroundColor: 'rgb(0, 0, 255)'
+      },
+  ]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+  const ctx4 = document.getElementById('GasHora');
+  
+  new Chart(ctx4, {
+    type: 'line',
+    data: {
+      labels: ['10:00', '11:00', '11h00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00'],
+      datasets: [{
+        label: 'Nível de Gás por Hora',
+        data: [1.2, 1.3, 1.3, 1.3, 1.3, 1.3, 1.3, 1.3, 1.4, 1.4, 1.4, 1.7],
+        borderWidth: 1,
+        borderColor: 'rgb(0, 255, 0)',
+        backgroundColor: 'rgb(0, 255, 0)'
+      },
+  ]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          min: 0,
+          max: 15
+        }
+      }
+    }
+  });
+
+  const ctx5 = document.getElementById('MapeamentoSemanal');
+  
+  new Chart(ctx5, {
+    type: 'bar',
+    data: {
+      labels: ['09/04/2024', '16/04/2024', '23/04/2024', '30/04/2024'],
+      datasets: [{
+        label: 'Nível de Gás Semanal',
+        data: [2, 4, 5, 6],
+        borderWidth: 1,
+        borderColor: '#fff',
+        backgroundColor: ['rgb(0, 0, 255)', 'rgb(0, 255, 0)', 'rgb(200, 0, 255)', 'rgb(255, 30, 255)']
+      },
+  ]
+    },
+    options: {
+      indexAxis: 'y',
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
