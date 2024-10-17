@@ -9,8 +9,35 @@
 </head>
 
 <body>
+    <div class="header" id="header">
+        <div class="header-container">
+            <h1 class="titulo">Silo Tech</h1>
 
-        <h1>SIMULAÇÃO DE EXPLOSIONTECH DOS SUPER ULTRACILIOS</h1>
+            <ul class="navbar">
+                <li>
+                    <a href="#servicos">Serviços</a>
+                </li>
+                <li>
+                    <a href="CalculadoraSilo.html">Simulador</a>
+                </li>
+                <li>
+                    <a href="sobre.html">Sobre Nós</a>
+                </li>
+                <li>|</li>
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
+                <li>
+                    <a href="cadastro.html">Cadastro</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container-calculadora">
+        <div class="titulo">
+            <h1>SIMULADOR FINANCEIRO - SILO TECH</h1>
+        </div>
         <div id="div1">
             Quantidade de silos: <input type="number" id="inputSilos"> <br>
         </div>
@@ -29,26 +56,59 @@
         </div>
 
         <button onclick="verificar()">Ver Silos</button>
-        <button onclick="calcular()">Calcular</button>
 
-
-
+        
+        
         <div id="div_mensagem"></div>
+        <div id="div4">
+            <button onclick="calcular()">Calcular</button>
+        </div>
         <div id="div_mensagem1"></div>
         <div id="div_mensagem2"></div>
         <div id="div_mensagem3"></div>
         <div id="div_mensagem4"></div>
+        
+
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div>
+                <h1 class="titulo">SiloTech</h1>
+            </div>
+            <div class="fale-conosco">
+                <p class="p-fale-conosco"><a href="faleConosco.html" class="a-fale-conosco">Fale conosco</a></p>
+                <h4 class="h4">© 2024 Silo Tech - Todos direitos reservados.</h4>
+            </div>
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#fbaf00" viewBox="0 0 256 256">
+                    <path
+                        d="M232,128a104.16,104.16,0,0,1-91.55,103.26,4,4,0,0,1-4.45-4V152h24a8,8,0,0,0,8-8.53,8.17,8.17,0,0,0-8.25-7.47H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,8-8.53A8.17,8.17,0,0,0,167.73,80H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0-8,8.53A8.17,8.17,0,0,0,96.27,152H120v75.28a4,4,0,0,1-4.44,4A104.15,104.15,0,0,1,24.07,124.09c2-54,45.74-97.9,99.78-100A104.12,104.12,0,0,1,232,128Z">
+                    </path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#fbaf00" viewBox="0 0 256 256">
+                    <path
+                        d="M215,219.85a8,8,0,0,1-7,4.15H160a8,8,0,0,1-6.75-3.71l-40.49-63.63L53.92,221.38a8,8,0,0,1-11.84-10.76l61.77-68L41.25,44.3A8,8,0,0,1,48,32H96a8,8,0,0,1,6.75,3.71l40.49,63.63,58.84-64.72a8,8,0,0,1,11.84,10.76l-61.77,67.95,62.6,98.38A8,8,0,0,1,215,219.85Z">
+                    </path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#fbaf00" viewBox="0 0 256 256">
+                    <path
+                        d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24ZM96,176a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0ZM88,96a12,12,0,1,1,12-12A12,12,0,0,1,88,96Zm96,80a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140Z">
+                    </path>
+                </svg>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
 
 <script>
+
     div1.style.display = 'block'
     div2.style.display = 'none'
     div3.style.display = 'block'
-
-
-
+    div4.style.display = 'none'
 
     function verificar() {
         var silo = Number(inputSilos.value)
@@ -81,10 +141,12 @@
             div1.style.display = 'block'
             div2.style.display = 'block'
             div3.style.display = 'block'
+            div4.style.display = 'block'
         } else {
             div1.style.display = 'block'
             div2.style.display = 'none'
             div3.style.display = 'block'
+            div4.style.display = 'block'
         }
 
 
@@ -110,7 +172,6 @@
         var soja = Number(inputSoja.value)
         var silo = Number(inputSilos.value)
 
-
         for (var contador = 1; contador <= silo; contador++) {
             var capacidade = Number(document.getElementById(`inputCapacidade${contador}`).value)
             var preenchimento = Number(document.getElementById(`inputPreenchimento${contador}`).value)
@@ -135,8 +196,7 @@
             sendo um total de <b style="color:red"> R$${(perdaSoja / silo + totalPreco / silo).toFixed(2)} </b> de prejuizo `
 
         div_mensagem3 += `Risco ${Teste}`
-    
-    
-        }
+
+    }
 
 </script>

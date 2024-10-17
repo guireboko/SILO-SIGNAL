@@ -1,12 +1,17 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+}
+
+.container-calculadora {
+    padding-top: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
 }
 
 /* MEXENDO EM TODAS AS DIVS PARA QUE FIQUEM PADRONIZADOS */
@@ -19,7 +24,7 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 50%;
+    width: 25%;
 }
 
 /* MEXENDO EM TODOS OS INPUTS PRA QUE FIQUEM PADRONIZADOS */
@@ -72,4 +77,76 @@ button:hover {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-weight: bold;
+}
+
+
+.header {
+    background-color: rgba(47, 58, 78, 1);
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+    transition: background-color 1.0s ease;
+}
+
+.header-container {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.header a{
+    text-decoration: none;
+    color: #FBAF00;
+}
+
+.navbar {
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+    color: #FBAF00;
+}
+
+.titulo {
+    color: #FBAF00;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+    /* -webkit-text-stroke-color: #2F3A4E;
+    -webkit-text-stroke-width: 0.5px; */
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: #2F3A4E;
+    height: 150px;
+    color: rgb(251, 175, 0);
+    display: flex;
+    font-size: 15px;
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center; }
+
+.fale-conosco {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fale-conosco p {
+    padding-top: 15px;
+    font-size: 18px;
+    margin: 0;
+}
+
+.a-fale-conosco {
+    text-decoration: none;
+    color: inherit;
 }
