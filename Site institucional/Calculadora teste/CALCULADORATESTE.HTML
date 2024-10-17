@@ -4,43 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Simulador Financeiro</title>
     <link rel="stylesheet" href="style1.css">
 </head>
 
 <body>
+    <div class="fundo">
+        <div class="container">
+            <h1>Simulador Financeiro</h1>
+            
+            <!-- Seção de quantidade de silos -->
+            <div class="section" id="div1">
+                <label for="inputSilos">Quantidade de silos:</label>
+                <input type="number" id="inputSilos" class="input-field"> 
+            </div>
 
-        <h1>SIMULAÇÃO DE EXPLOSIONTECH DOS SUPER ULTRACILIOS</h1>
-        <div id="div1">
-            Quantidade de silos: <input type="number" id="inputSilos"> <br>
+            <!-- Seção de proximidade dos silos -->
+            <div class="section" id="div2">
+                <label for="selectProximo">Eles estão próximos?</label>
+                <select id="selectProximo" class="select-field">
+                    <option>Sim</option>
+                    <option>Não</option>
+                </select>
+            </div>
+
+            <!-- Seção de valor da soja -->
+            <div class="section" id="div3">
+                <label for="inputSoja">Valor da cota de soja:</label>
+                <input type="number" id="inputSoja" class="input-field">
+            </div>
+
+            <!-- Grupo de botões -->
+            <div class="button-group">
+                <button onclick="verificar()">Ver Silos</button>
+                <button onclick="calcular()">Calcular</button>
+            </div>
+
+            <!-- Divs para mensagens e imagens -->
+            <div id="div_mensagem"></div>
+            <div id="div_mensagem1" class="result-message"></div>
+            <div id="div_mensagem2" class="result-message"></div>
+            <div id="div_mensagem3" class="result-message"></div>
+            <div id="div_mensagem4" class="result-message"></div>
         </div>
-
-        <div id="div2">
-            Eles estão próximos?
-            <select id="selectProximo">
-                <option>Sim</option>
-                <option>Não</option>
-            </select>
-            <br>
-        </div>
-
-        <div id="div3">
-            Valor da cota de soja: <input type="number" id="inputSoja">
-        </div>
-
-        <button onclick="verificar()">Ver Silos</button>
-        <button onclick="calcular()">Calcular</button>
-
-
-
-        <div id="div_mensagem"></div>
-        <div id="div_mensagem1"></div>
-        <div id="div_mensagem2"></div>
-        <div id="div_mensagem3"></div>
-        <div id="div_mensagem4"></div>
+    </div>
 </body>
 
 </html>
+
 
 <script>
     div1.style.display = 'block'
@@ -133,10 +144,5 @@
         } else
             div_mensagem3.innerHTML += `A média da perda de um silo seria de <b style="color:red"> R$${(perdaSoja / silo).toFixed(2)} </b> em saca de soja, mais <b style="color:red"> R$${(totalPreco / silo).toFixed(2)} </b> na perda dos silos, 
             sendo um total de <b style="color:red"> R$${(perdaSoja / silo + totalPreco / silo).toFixed(2)} </b> de prejuizo `
-
-        div_mensagem3 += `Risco ${Teste}`
-    
-    
-        }
-
+    }
 </script>
